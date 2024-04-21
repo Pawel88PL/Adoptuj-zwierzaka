@@ -12,18 +12,22 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Pet.name, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var pets: FetchedResults<Pet>
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(pets) { pet in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                    Text("Szczegóły zwierzeka")
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        HStack{
+                            Text(pet.name ?? "Nieznany")
+                            Spacer()
+                            Text("Rasa: \(pet.breed ?? "Nieznana")")
+                        }
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -34,18 +38,20 @@ struct ContentView: View {
                 }
                 ToolbarItem {
                     Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                        Label("Dodaj zwierzaka", systemImage: "plus")
                     }
                 }
             }
-            Text("Select an item")
+            Text("Wybierz zwierzaka")
         }
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newPet = Pet(context: viewContext)
+            newPet.name = "Nowy zwierzak"
+            newPet.breed = "Nieznana"
+            // newPet.timestamp = Date()
 
             do {
                 try viewContext.save()
@@ -60,7 +66,7 @@ struct ContentView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
+            offsets.map { pets[$0] }.forEach(viewContext.delete)
 
             do {
                 try viewContext.save()
