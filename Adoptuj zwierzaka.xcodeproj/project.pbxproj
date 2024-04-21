@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */; };
+		DC6630622BD532BA00A34903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630612BD532BA00A34903 /* ContentView.swift */; };
+		DC6630642BD532BB00A34903 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6630632BD532BB00A34903 /* Assets.xcassets */; };
+		DC6630672BD532BB00A34903 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6630662BD532BB00A34903 /* Preview Assets.xcassets */; };
+		DC6630692BD532BB00A34903 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630682BD532BB00A34903 /* Persistence.swift */; };
+		DC66306C2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC66306A2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld */; };
+		DC6630772BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630762BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift */; };
+		DC6630812BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630802BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift */; };
+		DC6630832BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC6630732BD532BB00A34903 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6630542BD532BA00A34903 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC66305B2BD532BA00A34903;
+			remoteInfo = "Adoptuj zwierzaka";
+		};
+		DC66307D2BD532BB00A34903 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC6630542BD532BA00A34903 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC66305B2BD532BA00A34903;
+			remoteInfo = "Adoptuj zwierzaka";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC66305C2BD532BA00A34903 /* Adoptuj zwierzaka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adoptuj zwierzaka.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaApp.swift; sourceTree = "<group>"; };
+		DC6630612BD532BA00A34903 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DC6630632BD532BB00A34903 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC6630662BD532BB00A34903 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DC6630682BD532BB00A34903 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		DC66306B2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Adoptuj_zwierzaka.xcdatamodel; sourceTree = "<group>"; };
+		DC66306D2BD532BB00A34903 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC6630722BD532BB00A34903 /* Adoptuj zwierzakaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adoptuj zwierzakaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6630762BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaTests.swift; sourceTree = "<group>"; };
+		DC66307C2BD532BB00A34903 /* Adoptuj zwierzakaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adoptuj zwierzakaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC6630802BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaUITests.swift; sourceTree = "<group>"; };
+		DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC6630592BD532BA00A34903 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC66306F2BD532BB00A34903 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6630792BD532BB00A34903 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC6630532BD532BA00A34903 = {
+			isa = PBXGroup;
+			children = (
+				DC66305E2BD532BA00A34903 /* Adoptuj zwierzaka */,
+				DC6630752BD532BB00A34903 /* Adoptuj zwierzakaTests */,
+				DC66307F2BD532BB00A34903 /* Adoptuj zwierzakaUITests */,
+				DC66305D2BD532BA00A34903 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC66305D2BD532BA00A34903 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC66305C2BD532BA00A34903 /* Adoptuj zwierzaka.app */,
+				DC6630722BD532BB00A34903 /* Adoptuj zwierzakaTests.xctest */,
+				DC66307C2BD532BB00A34903 /* Adoptuj zwierzakaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC66305E2BD532BA00A34903 /* Adoptuj zwierzaka */ = {
+			isa = PBXGroup;
+			children = (
+				DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */,
+				DC6630612BD532BA00A34903 /* ContentView.swift */,
+				DC6630632BD532BB00A34903 /* Assets.xcassets */,
+				DC6630682BD532BB00A34903 /* Persistence.swift */,
+				DC66306D2BD532BB00A34903 /* Info.plist */,
+				DC66306A2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld */,
+				DC6630652BD532BB00A34903 /* Preview Content */,
+			);
+			path = "Adoptuj zwierzaka";
+			sourceTree = "<group>";
+		};
+		DC6630652BD532BB00A34903 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DC6630662BD532BB00A34903 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DC6630752BD532BB00A34903 /* Adoptuj zwierzakaTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC6630762BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift */,
+			);
+			path = "Adoptuj zwierzakaTests";
+			sourceTree = "<group>";
+		};
+		DC66307F2BD532BB00A34903 /* Adoptuj zwierzakaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DC6630802BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift */,
+				DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */,
+			);
+			path = "Adoptuj zwierzakaUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC66305B2BD532BA00A34903 /* Adoptuj zwierzaka */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6630862BD532BB00A34903 /* Build configuration list for PBXNativeTarget "Adoptuj zwierzaka" */;
+			buildPhases = (
+				DC6630582BD532BA00A34903 /* Sources */,
+				DC6630592BD532BA00A34903 /* Frameworks */,
+				DC66305A2BD532BA00A34903 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Adoptuj zwierzaka";
+			productName = "Adoptuj zwierzaka";
+			productReference = DC66305C2BD532BA00A34903 /* Adoptuj zwierzaka.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC6630712BD532BB00A34903 /* Adoptuj zwierzakaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC6630892BD532BB00A34903 /* Build configuration list for PBXNativeTarget "Adoptuj zwierzakaTests" */;
+			buildPhases = (
+				DC66306E2BD532BB00A34903 /* Sources */,
+				DC66306F2BD532BB00A34903 /* Frameworks */,
+				DC6630702BD532BB00A34903 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC6630742BD532BB00A34903 /* PBXTargetDependency */,
+			);
+			name = "Adoptuj zwierzakaTests";
+			productName = "Adoptuj zwierzakaTests";
+			productReference = DC6630722BD532BB00A34903 /* Adoptuj zwierzakaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DC66307B2BD532BB00A34903 /* Adoptuj zwierzakaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC66308C2BD532BB00A34903 /* Build configuration list for PBXNativeTarget "Adoptuj zwierzakaUITests" */;
+			buildPhases = (
+				DC6630782BD532BB00A34903 /* Sources */,
+				DC6630792BD532BB00A34903 /* Frameworks */,
+				DC66307A2BD532BB00A34903 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC66307E2BD532BB00A34903 /* PBXTargetDependency */,
+			);
+			name = "Adoptuj zwierzakaUITests";
+			productName = "Adoptuj zwierzakaUITests";
+			productReference = DC66307C2BD532BB00A34903 /* Adoptuj zwierzakaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC6630542BD532BA00A34903 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					DC66305B2BD532BA00A34903 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					DC6630712BD532BB00A34903 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DC66305B2BD532BA00A34903;
+					};
+					DC66307B2BD532BB00A34903 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DC66305B2BD532BA00A34903;
+					};
+				};
+			};
+			buildConfigurationList = DC6630572BD532BA00A34903 /* Build configuration list for PBXProject "Adoptuj zwierzaka" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DC6630532BD532BA00A34903;
+			productRefGroup = DC66305D2BD532BA00A34903 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC66305B2BD532BA00A34903 /* Adoptuj zwierzaka */,
+				DC6630712BD532BB00A34903 /* Adoptuj zwierzakaTests */,
+				DC66307B2BD532BB00A34903 /* Adoptuj zwierzakaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC66305A2BD532BA00A34903 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6630672BD532BB00A34903 /* Preview Assets.xcassets in Resources */,
+				DC6630642BD532BB00A34903 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6630702BD532BB00A34903 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC66307A2BD532BB00A34903 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC6630582BD532BA00A34903 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC66306C2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld in Sources */,
+				DC6630692BD532BB00A34903 /* Persistence.swift in Sources */,
+				DC6630622BD532BA00A34903 /* ContentView.swift in Sources */,
+				DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC66306E2BD532BB00A34903 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6630772BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC6630782BD532BB00A34903 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC6630812BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift in Sources */,
+				DC6630832BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC6630742BD532BB00A34903 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC66305B2BD532BA00A34903 /* Adoptuj zwierzaka */;
+			targetProxy = DC6630732BD532BB00A34903 /* PBXContainerItemProxy */;
+		};
+		DC66307E2BD532BB00A34903 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC66305B2BD532BA00A34903 /* Adoptuj zwierzaka */;
+			targetProxy = DC66307D2BD532BB00A34903 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DC6630842BD532BB00A34903 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DC6630852BD532BB00A34903 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DC6630872BD532BB00A34903 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Adoptuj zwierzaka/Preview Content\"";
+				DEVELOPMENT_TEAM = J276VL98PC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Pawel-Staniul.Adoptuj-zwierzaka";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC6630882BD532BB00A34903 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Adoptuj zwierzaka/Preview Content\"";
+				DEVELOPMENT_TEAM = J276VL98PC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Pawel-Staniul.Adoptuj-zwierzaka";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DC66308A2BD532BB00A34903 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J276VL98PC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Pawel-Staniul.Adoptuj-zwierzakaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adoptuj zwierzaka.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Adoptuj zwierzaka";
+			};
+			name = Debug;
+		};
+		DC66308B2BD532BB00A34903 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J276VL98PC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Pawel-Staniul.Adoptuj-zwierzakaTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Adoptuj zwierzaka.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Adoptuj zwierzaka";
+			};
+			name = Release;
+		};
+		DC66308D2BD532BB00A34903 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J276VL98PC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Pawel-Staniul.Adoptuj-zwierzakaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Adoptuj zwierzaka";
+			};
+			name = Debug;
+		};
+		DC66308E2BD532BB00A34903 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J276VL98PC;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Pawel-Staniul.Adoptuj-zwierzakaUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Adoptuj zwierzaka";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC6630572BD532BA00A34903 /* Build configuration list for PBXProject "Adoptuj zwierzaka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6630842BD532BB00A34903 /* Debug */,
+				DC6630852BD532BB00A34903 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6630862BD532BB00A34903 /* Build configuration list for PBXNativeTarget "Adoptuj zwierzaka" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC6630872BD532BB00A34903 /* Debug */,
+				DC6630882BD532BB00A34903 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC6630892BD532BB00A34903 /* Build configuration list for PBXNativeTarget "Adoptuj zwierzakaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC66308A2BD532BB00A34903 /* Debug */,
+				DC66308B2BD532BB00A34903 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC66308C2BD532BB00A34903 /* Build configuration list for PBXNativeTarget "Adoptuj zwierzakaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC66308D2BD532BB00A34903 /* Debug */,
+				DC66308E2BD532BB00A34903 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DC66306A2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DC66306B2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodel */,
+			);
+			currentVersion = DC66306B2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodel */;
+			path = Adoptuj_zwierzaka.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DC6630542BD532BA00A34903 /* Project object */;
+}
