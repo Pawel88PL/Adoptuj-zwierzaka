@@ -12,31 +12,60 @@ struct PetDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
+            VStack {
+                // Obraz zwierzaka
                 if let imageData = pet.image, let uiImage = UIImage(data: imageData) {
                     Image(uiImage: uiImage)
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .cornerRadius(10)
-                        .padding()
+                        .scaledToFit()
+                        .cornerRadius(12)
+                        .padding(.horizontal)
+                        .padding(.top)
                 }
-
-                Text(pet.name ?? "Nieznany")
-                    .font(.title)
-                Text("Rasa: \(pet.breed ?? "Nieznana")")
-                    .font(.subheadline)
-                Text("Wiek: \(String(pet.age))")
-                    .font(.subheadline)
-                if let descriptions = pet.descriptions, !descriptions.isEmpty {
-                    Text("Opis:")
-                        .font(.headline)
-                    Text(descriptions)
+                
+                // Karta z informacjami
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(pet.name ?? "Nieznany")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                    Divider()
+                    
+                    HStack {
+                        Text("Rasa:")
+                            .fontWeight(.semibold)
+                        Text(pet.breed ?? "Nieznana")
+                            .font(.subheadline)
+                    }
+                    
+                    HStack {
+                        Text("Wiek:")
+                            .fontWeight(.semibold)
+                        Text("\(pet.age)")
+                            .font(.subheadline)
+                    }
+                    
+                    if let descriptions = pet.descriptions, !descriptions.isEmpty {
+                        VStack(alignment: .leading) {
+                            Text("Opis:")
+                                .fontWeight(.semibold)
+                                .padding(.bottom, 20)
+                            
+                            Text(descriptions)
+                                .font(.subheadline)
+                        }
+                    }
                 }
-                Spacer()
+                .padding()
+                .background(Color.white)
+                .cornerRadius(12)
+                .shadow(radius: 5)
+                .padding(.horizontal)
+                .padding(.bottom)
             }
         }
-        .padding()
         .navigationBarTitle(Text(pet.name ?? "Szczegóły"), displayMode: .inline)
         .appBackground()
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
