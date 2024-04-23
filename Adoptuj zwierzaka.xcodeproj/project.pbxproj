@@ -16,6 +16,10 @@
 		DC6630772BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630762BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift */; };
 		DC6630812BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630802BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift */; };
 		DC6630832BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */; };
+		DC6630902BD542B400A34903 /* AddPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66308F2BD542B400A34903 /* AddPetView.swift */; };
+		DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630912BD55DF300A34903 /* PetDetailView.swift */; };
+		DC6630942BD57F6A00A34903 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630932BD57F6A00A34903 /* MainView.swift */; };
+		DC6630962BD5807700A34903 /* PetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630952BD5807600A34903 /* PetListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		DC66307C2BD532BB00A34903 /* Adoptuj zwierzakaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adoptuj zwierzakaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC6630802BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaUITests.swift; sourceTree = "<group>"; };
 		DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DC66308F2BD542B400A34903 /* AddPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetView.swift; sourceTree = "<group>"; };
+		DC6630912BD55DF300A34903 /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
+		DC6630932BD57F6A00A34903 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DC6630952BD5807600A34903 /* PetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,10 @@
 				DC66306D2BD532BB00A34903 /* Info.plist */,
 				DC66306A2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld */,
 				DC6630652BD532BB00A34903 /* Preview Content */,
+				DC66308F2BD542B400A34903 /* AddPetView.swift */,
+				DC6630912BD55DF300A34903 /* PetDetailView.swift */,
+				DC6630932BD57F6A00A34903 /* MainView.swift */,
+				DC6630952BD5807600A34903 /* PetListView.swift */,
 			);
 			path = "Adoptuj zwierzaka";
 			sourceTree = "<group>";
@@ -266,9 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC66306C2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld in Sources */,
+				DC6630942BD57F6A00A34903 /* MainView.swift in Sources */,
 				DC6630692BD532BB00A34903 /* Persistence.swift in Sources */,
 				DC6630622BD532BA00A34903 /* ContentView.swift in Sources */,
+				DC6630962BD5807700A34903 /* PetListView.swift in Sources */,
+				DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */,
 				DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */,
+				DC6630902BD542B400A34903 /* AddPetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
