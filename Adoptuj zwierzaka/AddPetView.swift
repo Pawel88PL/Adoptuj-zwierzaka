@@ -12,6 +12,8 @@ struct AddPetView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var showAlert = false
     @State private var errorMessage = ""
+    @State private var showingImagePicker = false
+    @State private var image: UIImage?
 
     // Atrybuty zwierzaka
     @State private var name: String = ""
@@ -27,6 +29,14 @@ struct AddPetView: View {
                     TextField("Rasa", text: $breed)
                     Stepper("Wiek: \(age)", value: $age, in: 0...30)
                     TextField("Opis", text: $descriptions)
+                    if image != nil {
+                        Image(uiImage: image!)
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    Button("Wybierz zdjęcie"){
+                        showingImagePicker = true
+                    }
                 }
                 Button("Dodaj") {
                     // walidacja danych wejściowych
@@ -40,13 +50,16 @@ struct AddPetView: View {
                     presentationMode.wrappedValue.dismiss()
                 }
             }
-            .alert(isPresented: $showAlert){
-                Alert(title: Text("Błąd"), message: Text(errorMessage), dismissButton: .default(Text("Ok")))
-            }
             .navigationBarTitle("Dodaj zwierzaka", displayMode: .inline)
             .navigationBarItems(trailing: Button("Anuluj") {
                 presentationMode.wrappedValue.dismiss()
             })
+            .alert(isPresented: $showAlert){
+                Alert(title: Text("Błąd"), message: Text(errorMessage), dismissButton: .default(Text("Ok")))
+            }
+            .sheet(isPresented: $showingImagePicker){
+                ImagePicker(selectedImage: $image)
+            }
         }
     }
 
@@ -57,6 +70,11 @@ struct AddPetView: View {
             newPet.breed = breed
             newPet.age = Int16(age)
             newPet.descriptions = descriptions
+            
+            if let imageData = image?.jpegData(compressionQuality: 1.0) {
+                    newPet.image = imageData
+                }
+            
             do {
                 try viewContext.save()
                 // reset formularza
@@ -64,6 +82,7 @@ struct AddPetView: View {
                 breed = ""
                 age = 0
                 descriptions = ""
+                image = nil
             } catch {
                 errorMessage = "Nie udało się zapisać zwierzaka: \(error.localizedDescription)"
                 showAlert = true

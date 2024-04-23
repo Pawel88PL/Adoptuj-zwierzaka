@@ -53,3 +53,31 @@ struct PetListView: View {
         }
     }
 }
+
+struct PetRow: View {
+    var pet: Pet
+    
+    var body: some View {
+        HStack {
+            // Miniaturka obrazu, jeśli dostępna
+            if let imageData = pet.image, let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()  // Pozwala na zmianę rozmiaru obrazu
+                    .scaledToFill()  // Utrzymuje proporcje obrazu
+                    .frame(width: 50, height: 50)  // Określa rozmiar miniatury
+                    .cornerRadius(25)  // Tworzy okrągłą miniaturkę
+                    .clipped()  // Przycina obraz do ramki
+            }
+            
+            VStack(alignment: .leading) {
+                Text(pet.name ?? "Nieznany")
+                    .font(.headline)
+                Text("Rasa: \(pet.breed ?? "Nieznana")")
+                    .font(.subheadline)
+            }
+            .padding(.leading, 8)  // Dodaje odstęp między obrazem a tekstem
+            
+            Spacer()
+        }
+    }
+}

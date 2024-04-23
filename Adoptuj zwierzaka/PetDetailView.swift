@@ -11,22 +11,32 @@ struct PetDetailView: View {
     var pet: Pet
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(pet.name ?? "Nieznany")
-                .font(.title)
-            Text("Rasa: \(pet.breed ?? "Nieznana")")
-                .font(.subheadline)
-            Text("Wiek: \(pet.age)")
-                .font(.subheadline)
-            if let descriptions = pet.descriptions, !descriptions.isEmpty {
-                Text("Opis:")
-                    .font(.headline)
-                Text(descriptions)
+        ScrollView {
+            VStack(alignment: .leading) {
+                if let imageData = pet.image, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .cornerRadius(10)
+                        .padding()
+                }
+
+                Text(pet.name ?? "Nieznany")
+                    .font(.title)
+                Text("Rasa: \(pet.breed ?? "Nieznana")")
+                    .font(.subheadline)
+                Text("Wiek: \(String(pet.age))")
+                    .font(.subheadline)
+                if let descriptions = pet.descriptions, !descriptions.isEmpty {
+                    Text("Opis:")
+                        .font(.headline)
+                    Text(descriptions)
+                }
+                Spacer()
             }
-            Spacer()
         }
         .padding()
-        .appBackground()
         .navigationBarTitle(Text(pet.name ?? "Szczegóły"), displayMode: .inline)
+        .appBackground()
     }
 }

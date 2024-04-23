@@ -8,19 +8,6 @@
 import SwiftUI
 import CoreData
 
-
-struct PetRow: View {
-    var pet: Pet
-    
-    var body: some View {
-        HStack {
-            Text(pet.name ?? "Nieznany")
-            Spacer()
-            Text("Rasa: \(pet.breed ?? "Nieznana")")
-        }
-    }
-}
-
 extension View {
     func appBackground() -> some View {
         self

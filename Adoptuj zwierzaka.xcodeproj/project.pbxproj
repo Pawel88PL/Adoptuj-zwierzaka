@@ -20,6 +20,7 @@
 		DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630912BD55DF300A34903 /* PetDetailView.swift */; };
 		DC6630942BD57F6A00A34903 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630932BD57F6A00A34903 /* MainView.swift */; };
 		DC6630962BD5807700A34903 /* PetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630952BD5807600A34903 /* PetListView.swift */; };
+		DCE296582BD7A9440008A1A4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296572BD7A9440008A1A4 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		DC6630912BD55DF300A34903 /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
 		DC6630932BD57F6A00A34903 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DC6630952BD5807600A34903 /* PetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListView.swift; sourceTree = "<group>"; };
+		DCE296572BD7A9440008A1A4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				DC6630912BD55DF300A34903 /* PetDetailView.swift */,
 				DC6630932BD57F6A00A34903 /* MainView.swift */,
 				DC6630952BD5807600A34903 /* PetListView.swift */,
+				DCE296572BD7A9440008A1A4 /* ImagePicker.swift */,
 			);
 			path = "Adoptuj zwierzaka";
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				DC66306C2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld in Sources */,
 				DC6630942BD57F6A00A34903 /* MainView.swift in Sources */,
 				DC6630692BD532BB00A34903 /* Persistence.swift in Sources */,
+				DCE296582BD7A9440008A1A4 /* ImagePicker.swift in Sources */,
 				DC6630622BD532BA00A34903 /* ContentView.swift in Sources */,
 				DC6630962BD5807700A34903 /* PetListView.swift in Sources */,
 				DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */,
