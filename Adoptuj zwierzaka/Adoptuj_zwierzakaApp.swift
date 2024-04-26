@@ -17,7 +17,16 @@ class AppState: ObservableObject {
                 self.selectedView = view
             }
         }
+    
+    // Metoda do wylogowania użytkownika
+        func logOut() {
+            DispatchQueue.main.async {
+                self.isAuthenticated = false
+                self.selectedView = AnyView(LoginView())
+            }
+        }
 }
+
 
 @main
 struct Adoptuj_zwierzakaApp: App {

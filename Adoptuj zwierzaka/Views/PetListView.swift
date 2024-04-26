@@ -17,37 +17,41 @@ struct PetListView: View {
     private var pets: FetchedResults<Pet>
     
     @State private var showingAddPetView = false  // Kontroluje pokazanie widoku dodawania
-
+    
     var body: some View {
-            NavigationView {
-                List {
-                    ForEach(pets) { pet in
-                        NavigationLink(destination: PetDetailView(pet: pet)) {
-                            PetRow(pet: pet)
-                        }
-                    }
-                    .onDelete(perform: deleteItems)
-                }
-                .navigationTitle("Zwierzaki")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            showingAddPetView = true
-                        }) {
-                            Label("Dodaj zwierzaka", systemImage: "plus")
-                        }
+        NavigationView {
+            List {
+                ForEach(pets) { pet in
+                    NavigationLink(destination: PetDetailView(pet: pet)) {
+                        PetRow(pet: pet)
                     }
                 }
-                .sheet(isPresented: $showingAddPetView) {
-                    AddPetView().environment(\.managedObjectContext, viewContext)
+                .onDelete(perform: deleteItems)
+            }
+            .navigationTitle("Zwierzaki")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) { Button("Wyloguj") {
+                    appState.logOut()
+                }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showingAddPetView = true
+                    }) {
+                        Label("Dodaj zwierzaka", systemImage: "plus")
+                    }
                 }
             }
+            .sheet(isPresented: $showingAddPetView) {
+                AddPetView().environment(\.managedObjectContext, viewContext)
+            }
+        }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { pets[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {

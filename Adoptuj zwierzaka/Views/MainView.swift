@@ -23,11 +23,6 @@ struct MainView: View {
                     .animation(Animation.easeIn.delay(0.5), value: fadeInOnAppear)
                     .padding()
                 
-                Text(appState.isAuthenticated ? "Zalogowany" : "Niezalogowany")
-                    .padding()
-                    .foregroundColor(appState.isAuthenticated ? .green : .red)
-                
-                
                 Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fill)

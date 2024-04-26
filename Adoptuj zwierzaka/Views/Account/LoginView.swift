@@ -20,13 +20,13 @@ struct LoginView: View {
     @State private var loginFailed = false
 
     var body: some View {
-        Text("Czy zalogowano: \(appState.isAuthenticated ? "Tak" : "Nie")")
         NavigationView {
             Form {
                 TextField("Email", text: $email)
                     .keyboardType(.emailAddress)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
+                    .fixedSize(horizontal: false, vertical: true)
                 SecureField("Hasło", text: $password)
                 if loginFailed {
                     Text("Niepoprawna nazwa użytkownika lub hasło")
