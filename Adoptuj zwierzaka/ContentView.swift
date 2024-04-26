@@ -8,6 +8,23 @@
 import SwiftUI
 import CoreData
 
+struct ContentView: View {
+    @EnvironmentObject var appState: AppState
+
+    var body: some View {
+        // Decyzja, który widok wyświetlić w zależności od stanu uwierzytelnienia
+        Group {
+            if appState.isAuthenticated {
+                // Jeśli użytkownik jest uwierzytelniony, pokaż listę zwierząt
+                PetListView()
+            } else {
+                // Jeśli użytkownik nie jest uwierzytelniony, pokaż ekran logowania
+                MainView()
+            }
+        }
+    }
+}
+
 extension View {
     func appBackground() -> some View {
         self

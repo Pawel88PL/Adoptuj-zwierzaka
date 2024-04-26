@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct PetListView: View {
+    @EnvironmentObject var appState: AppState
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Pet.name, ascending: true)],
@@ -18,27 +19,29 @@ struct PetListView: View {
     @State private var showingAddPetView = false  // Kontroluje pokazanie widoku dodawania
 
     var body: some View {
-        List {
-            ForEach(pets) { pet in
-                NavigationLink(destination: PetDetailView(pet: pet)) {
-                    PetRow(pet: pet)
+            NavigationView {
+                List {
+                    ForEach(pets) { pet in
+                        NavigationLink(destination: PetDetailView(pet: pet)) {
+                            PetRow(pet: pet)
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                .navigationTitle("Zwierzaki")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            showingAddPetView = true
+                        }) {
+                            Label("Dodaj zwierzaka", systemImage: "plus")
+                        }
+                    }
+                }
+                .sheet(isPresented: $showingAddPetView) {
+                    AddPetView().environment(\.managedObjectContext, viewContext)
                 }
             }
-            .onDelete(perform: deleteItems)
-        }
-        .navigationTitle("Zwierzaki")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    showingAddPetView = true
-                }) {
-                    Label("Dodaj zwierzaka", systemImage: "plus")
-                }
-            }
-        }
-        .sheet(isPresented: $showingAddPetView) {
-            AddPetView().environment(\.managedObjectContext, viewContext)
-        }
     }
 
     private func deleteItems(offsets: IndexSet) {

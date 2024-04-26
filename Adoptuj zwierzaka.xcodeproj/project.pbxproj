@@ -21,6 +21,8 @@
 		DC6630942BD57F6A00A34903 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630932BD57F6A00A34903 /* MainView.swift */; };
 		DC6630962BD5807700A34903 /* PetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630952BD5807600A34903 /* PetListView.swift */; };
 		DCE296582BD7A9440008A1A4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296572BD7A9440008A1A4 /* ImagePicker.swift */; };
+		DCE296632BD7E1E40008A1A4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */; };
+		DCE296652BD7E24E0008A1A4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296642BD7E24E0008A1A4 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		DC6630932BD57F6A00A34903 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DC6630952BD5807600A34903 /* PetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListView.swift; sourceTree = "<group>"; };
 		DCE296572BD7A9440008A1A4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		DCE296642BD7E24E0008A1A4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,10 +120,7 @@
 				DC66306D2BD532BB00A34903 /* Info.plist */,
 				DC66306A2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld */,
 				DC6630652BD532BB00A34903 /* Preview Content */,
-				DC66308F2BD542B400A34903 /* AddPetView.swift */,
-				DC6630912BD55DF300A34903 /* PetDetailView.swift */,
-				DC6630932BD57F6A00A34903 /* MainView.swift */,
-				DC6630952BD5807600A34903 /* PetListView.swift */,
+				DCE2965E2BD7E0D10008A1A4 /* Views */,
 				DCE296572BD7A9440008A1A4 /* ImagePicker.swift */,
 			);
 			path = "Adoptuj zwierzaka";
@@ -148,6 +149,27 @@
 				DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */,
 			);
 			path = "Adoptuj zwierzakaUITests";
+			sourceTree = "<group>";
+		};
+		DCE2965E2BD7E0D10008A1A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DCE2965F2BD7E12E0008A1A4 /* Account */,
+				DC6630912BD55DF300A34903 /* PetDetailView.swift */,
+				DC66308F2BD542B400A34903 /* AddPetView.swift */,
+				DC6630932BD57F6A00A34903 /* MainView.swift */,
+				DC6630952BD5807600A34903 /* PetListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DCE2965F2BD7E12E0008A1A4 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */,
+				DCE296642BD7E24E0008A1A4 /* LoginView.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +310,9 @@
 				DC6630962BD5807700A34903 /* PetListView.swift in Sources */,
 				DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */,
 				DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */,
+				DCE296652BD7E24E0008A1A4 /* LoginView.swift in Sources */,
 				DC6630902BD542B400A34903 /* AddPetView.swift in Sources */,
+				DCE296632BD7E1E40008A1A4 /* RegistrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

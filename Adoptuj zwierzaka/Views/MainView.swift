@@ -8,20 +8,26 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var appState: AppState
     @State private var fadeInOnAppear = false
-    @State private var animateBackground = false
-
+    
+    let buttonColor = Color.blue.opacity(0.85)  // Ujednolicony kolor przycisków
+    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
-                
                 Text("Adoptuj Zwierzaka!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .opacity(fadeInOnAppear ? 1 : 0)
                     .animation(Animation.easeIn.delay(0.5), value: fadeInOnAppear)
                     .padding()
-
+                
+                Text(appState.isAuthenticated ? "Zalogowany" : "Niezalogowany")
+                    .padding()
+                    .foregroundColor(appState.isAuthenticated ? .green : .red)
+                
+                
                 Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -31,25 +37,34 @@ struct MainView: View {
                     .padding(.horizontal, 5.0)
                     .opacity(fadeInOnAppear ? 1 : 0)
                     .animation(Animation.easeIn.delay(1), value: fadeInOnAppear)
-
+                
                 Text("Znajdź swojego nowego przyjaciela.")
                     .font(.title2)
                     .foregroundColor(.white)
                     .opacity(fadeInOnAppear ? 1 : 0)
                     .animation(Animation.easeIn.delay(1.5), value: fadeInOnAppear)
                     .padding(.vertical)
-
-                NavigationLink(destination: PetListView()) {
-                    Text("Przeglądaj zwierzaki")
-                        .font(.headline)
-                        .padding()
-                        .background(Color.green.opacity(0.85))
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .opacity(fadeInOnAppear ? 1 : 0)
-                        .animation(Animation.easeIn.delay(2), value: fadeInOnAppear)
+                
+                Spacer()
+                
+                // Ujednolicone przyciski
+                Group {
+                    NavigationLink(destination: LoginView()) {
+                        Text("Zaloguj się")
+                    }
+                    NavigationLink(destination: RegistrationView()) {
+                        Text("Zarejestruj się")
+                    }
                 }
-
+                .font(.headline)
+                .padding()
+                .frame(maxWidth: .infinity)  // Zapewnia, że przyciski są tej samej szerokości
+                .background(buttonColor)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+                .opacity(fadeInOnAppear ? 1 : 0)
+                .animation(Animation.easeIn.delay(2), value: fadeInOnAppear)
+                
                 Spacer()
             }
             .padding(.horizontal, 20.0)
@@ -57,7 +72,6 @@ struct MainView: View {
             .navigationBarHidden(true)
             .onAppear {
                 fadeInOnAppear = true
-                animateBackground = true
             }
         }
     }

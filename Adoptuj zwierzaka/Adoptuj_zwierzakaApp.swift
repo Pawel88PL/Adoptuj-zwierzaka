@@ -7,13 +7,27 @@
 
 import SwiftUI
 
+class AppState: ObservableObject {
+    @Published var isAuthenticated = false
+    @Published var selectedView: AnyView = AnyView(EmptyView())
+    
+    // Metoda do zmiany widoku
+        func changeView(to view: AnyView) {
+            DispatchQueue.main.async {
+                self.selectedView = view
+            }
+        }
+}
+
 @main
 struct Adoptuj_zwierzakaApp: App {
+    @StateObject var appState = AppState()
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            ContentView()
+                .environmentObject(appState)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
