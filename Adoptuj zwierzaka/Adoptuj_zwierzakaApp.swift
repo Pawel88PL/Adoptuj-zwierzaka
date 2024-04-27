@@ -24,6 +24,7 @@ class AppState: ObservableObject {
         DispatchQueue.main.async {
             self.isAuthenticated = true
             self.selectedView = AnyView(PetListView())
+            self.alertMessage = "Nastąpiło poprawne zalogowanie! Możesz teraz przeglądać listę dostępnych zwierząt."
         }
     }
     

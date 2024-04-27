@@ -16,7 +16,8 @@ struct PetListView: View {
         animation: .default)
     private var pets: FetchedResults<Pet>
     
-    @State private var showingAddPetView = false  // Kontroluje pokazanie widoku dodawania
+    @State private var showingAddPetView = false
+    @State private var showAlert = false
     
     var body: some View {
         NavigationView {
@@ -28,23 +29,43 @@ struct PetListView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
+            .listStyle(PlainListStyle())
             .navigationTitle("Zwierzaki")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) { Button("Wyloguj") {
-                    appState.logOut()
-                }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showingAddPetView = true
-                    }) {
-                        Label("Dodaj zwierzaka", systemImage: "plus")
-                    }
-                }
-            }
+            .navigationBarItems(
+                leading: logoutButton(),
+                trailing: addButton()
+            )
             .sheet(isPresented: $showingAddPetView) {
                 AddPetView().environment(\.managedObjectContext, viewContext)
             }
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Sukces"), message: Text(appState.alertMessage ?? "Zalogowano pomyślnie"), dismissButton: .default(Text("OK"), action: {
+                    // Zresetowanie alertu po wyświetleniu
+                    appState.alertMessage = nil
+                }))
+            }
+            .onAppear {
+                if let message = appState.alertMessage, !message.isEmpty {
+                    showAlert = true
+                }
+            }
+        }
+    }
+    
+    private func logoutButton() -> some View {
+        Button("Wyloguj") {
+            appState.logOut()
+        }
+        .foregroundColor(.red)
+        .font(.headline)
+    }
+    
+    private func addButton() -> some View {
+        Button(action: {
+            showingAddPetView = true
+        }) {
+            Image(systemName: "plus")
+                .imageScale(.large)
         }
     }
     
@@ -66,24 +87,21 @@ struct PetRow: View {
     
     var body: some View {
         HStack {
-            // Miniaturka obrazu, jeśli dostępna
             if let imageData = pet.image, let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
-                    .resizable()  // Pozwala na zmianę rozmiaru obrazu
-                    .scaledToFill()  // Utrzymuje proporcje obrazu
-                    .frame(width: 50, height: 50)  // Określa rozmiar miniatury
-                    .cornerRadius(25)  // Tworzy okrągłą miniaturkę
-                    .clipped()  // Przycina obraz do ramki
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 70, height: 70)
+                    .cornerRadius(35)
+                    .clipped()
             }
-            
             VStack(alignment: .leading) {
                 Text(pet.name ?? "Nieznany")
                     .font(.headline)
                 Text("Rasa: \(pet.breed ?? "Nieznana")")
                     .font(.subheadline)
             }
-            .padding(.leading, 8)  // Dodaje odstęp między obrazem a tekstem
-            
+            .padding(.leading, 8)
             Spacer()
         }
     }
