@@ -48,7 +48,7 @@ struct LoginView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
-                .background(Color.blue)
+                .background(appButtonColor)
                 .foregroundColor(.white)
                 .cornerRadius(10)
                 .shadow(radius: 5)

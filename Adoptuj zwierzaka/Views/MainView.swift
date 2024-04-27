@@ -11,8 +11,6 @@ struct MainView: View {
     @EnvironmentObject var appState: AppState
     @State private var fadeInOnAppear = false
     
-    let buttonColor = Color.blue.opacity(0.85)  // Ujednolicony kolor przycisków
-    
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
@@ -54,7 +52,7 @@ struct MainView: View {
                 .font(.headline)
                 .padding()
                 .frame(maxWidth: .infinity)  // Zapewnia, że przyciski są tej samej szerokości
-                .background(buttonColor)
+                .background(appButtonColor)
                 .foregroundColor(.white)
                 .cornerRadius(10)
                 .opacity(fadeInOnAppear ? 1 : 0)
@@ -71,3 +69,10 @@ struct MainView: View {
         }
     }
 }
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView().environmentObject(AppState())
+    }
+}
+
