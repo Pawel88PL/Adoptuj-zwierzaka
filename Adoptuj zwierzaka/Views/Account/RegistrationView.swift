@@ -6,71 +6,100 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct RegistrationView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var appState: AppState
     @State private var email = ""
+    @State private var firstName = ""
+    @State private var secondName = ""
     @State private var password = ""
     @State private var confirmPassword = ""
     @State private var registrationFailed = false
     @State private var errorMessage = ""
-    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         NavigationView {
             Form {
-                TextField("Email", text: $email)
-                    .keyboardType(.emailAddress)
-                    .autocapitalization(.none)
-                SecureField("Hasło", text: $password)
-                SecureField("Potwierdź hasło", text: $confirmPassword)
-                if registrationFailed {
-                    Text(errorMessage)
-                        .foregroundColor(.red)
+                VStack(spacing: 15) {
+                    HStack {
+                        Image(systemName: "envelope")
+                            .foregroundColor(.gray)
+                        TextField("Email", text: $email)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                    }
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .foregroundColor(.gray)
+                        TextField("Imię", text: $firstName)
+                    }
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .foregroundColor(.gray)
+                        TextField("Nazwisko", text: $secondName)
+                    }
+                    HStack {
+                        Image(systemName: "lock.fill")
+                            .foregroundColor(.gray)
+                        SecureField("Hasło", text: $password)
+                    }
+                    HStack {
+                        Image(systemName: "lock.fill")
+                            .foregroundColor(.gray)
+                        SecureField("Potwierdź hasło", text: $confirmPassword)
+                    }
+
+                    if registrationFailed {
+                        Text(errorMessage)
+                            .foregroundColor(.red)
+                            .transition(.slide)
+                    }
                 }
+                .padding(.vertical)
+
                 Button("Zarejestruj się") {
                     registerUser()
                 }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+                .shadow(radius: 5)
             }
-            .navigationBarTitle("Rejestracja")
+            .navigationBarTitle("Rejestracja", displayMode: .inline)
         }
     }
-    
-    func registerUser() {
-        if !isValidEmail(email) {
-            errorMessage = "Nieprawidłowy format adresu e-mail."
-            registrationFailed = true
-        } else if password != confirmPassword {
-            errorMessage = "Hasła nie pasują do siebie."
-            registrationFailed = true
-        } else if email.isEmpty || password.isEmpty {
-            errorMessage = "Wszystkie pola muszą być wypełnione."
-            registrationFailed = true
-        } else {
-            let newUser = User(context: viewContext)
-            newUser.email = email
-            newUser.password = password
 
-            do {
-                try viewContext.save()
-                presentationMode.wrappedValue.dismiss()
-            } catch {
-                errorMessage = "Nie udało się zapisać użytkownika: \(error.localizedDescription)"
-                registrationFailed = true
-            }
+    func registerUser() {
+        registrationFailed = false
+        guard password == confirmPassword, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !secondName.isEmpty else {
+            registrationFailed = true
+            errorMessage = "Wszystkie pola muszą być wypełnione i hasła muszą być takie same."
+            return
         }
-    }
-    
-    
-    func isValidEmail(_ email: String) -> Bool {
-        let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailPattern)
-        return emailPred.evaluate(with: email)
+
+        let newUser = User(context: viewContext)
+        newUser.email = email
+        newUser.firstName = firstName
+        newUser.secondName = secondName
+        newUser.password = password
+
+        do {
+            try viewContext.save()
+            print("User registered successfully")
+            appState.registerUser()
+        } catch {
+            errorMessage = "Nie udało się zapisać użytkownika: \(error.localizedDescription)"
+            registrationFailed = true
+        }
     }
 }
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView()
+        RegistrationView().environmentObject(AppState())
     }
 }

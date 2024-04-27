@@ -14,11 +14,12 @@ struct LoginView: View {
         entity: User.entity(),
         sortDescriptors: []
     ) var users: FetchedResults<User>
-
+    
     @State private var email = ""
     @State private var password = ""
     @State private var loginFailed = false
-
+    @State private var showAlert = false
+    
     var body: some View {
         NavigationView {
             Form {
@@ -37,6 +38,17 @@ struct LoginView: View {
                 }
             }
             .navigationBarTitle("Logowanie")
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Sukces!"), message: Text(appState.alertMessage ?? ""), dismissButton: .default(Text("OK"), action: {
+                    // Reset alert message after showing
+                    appState.alertMessage = nil
+                }))
+            }
+            .onAppear {
+                if let message = appState.alertMessage, !message.isEmpty {
+                    showAlert = true
+                }
+            }
         }
     }
     
@@ -45,17 +57,15 @@ struct LoginView: View {
         let matchingUser = users.first { $0.email == email && $0.password == password }
         
         if matchingUser != nil {
-            appState.isAuthenticated = true
-            appState.changeView(to: AnyView(PetListView()))
+            appState.logIn()  // Używanie metody logIn() z AppState
         } else {
             loginFailed = true
         }
     }
 }
 
-
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView().environmentObject(AppState())
     }
 }
