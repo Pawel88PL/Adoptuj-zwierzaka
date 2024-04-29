@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC550DBF2BDD36D00095050D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DBE2BDD36D00095050D /* AppState.swift */; };
+		DC550DC12BDD37E20095050D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC02BDD37E20095050D /* ImagePicker.swift */; };
 		DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */; };
 		DC6630622BD532BA00A34903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630612BD532BA00A34903 /* ContentView.swift */; };
 		DC6630642BD532BB00A34903 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6630632BD532BB00A34903 /* Assets.xcassets */; };
@@ -20,7 +22,6 @@
 		DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630912BD55DF300A34903 /* PetDetailView.swift */; };
 		DC6630942BD57F6A00A34903 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630932BD57F6A00A34903 /* MainView.swift */; };
 		DC6630962BD5807700A34903 /* PetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630952BD5807600A34903 /* PetListView.swift */; };
-		DCE296582BD7A9440008A1A4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296572BD7A9440008A1A4 /* ImagePicker.swift */; };
 		DCE296632BD7E1E40008A1A4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */; };
 		DCE296652BD7E24E0008A1A4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296642BD7E24E0008A1A4 /* LoginView.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC550DBE2BDD36D00095050D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		DC550DC02BDD37E20095050D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DC66305C2BD532BA00A34903 /* Adoptuj zwierzaka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adoptuj zwierzaka.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaApp.swift; sourceTree = "<group>"; };
 		DC6630612BD532BA00A34903 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		DC6630912BD55DF300A34903 /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
 		DC6630932BD57F6A00A34903 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DC6630952BD5807600A34903 /* PetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListView.swift; sourceTree = "<group>"; };
-		DCE296572BD7A9440008A1A4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		DCE296642BD7E24E0008A1A4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC550DBD2BDD36BF0095050D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DC550DBE2BDD36D00095050D /* AppState.swift */,
+				DC550DC02BDD37E20095050D /* ImagePicker.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		DC6630532BD532BA00A34903 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +124,7 @@
 		DC66305E2BD532BA00A34903 /* Adoptuj zwierzaka */ = {
 			isa = PBXGroup;
 			children = (
+				DC550DBD2BDD36BF0095050D /* Data */,
 				DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */,
 				DC6630612BD532BA00A34903 /* ContentView.swift */,
 				DC6630632BD532BB00A34903 /* Assets.xcassets */,
@@ -121,7 +133,6 @@
 				DC66306A2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld */,
 				DC6630652BD532BB00A34903 /* Preview Content */,
 				DCE2965E2BD7E0D10008A1A4 /* Views */,
-				DCE296572BD7A9440008A1A4 /* ImagePicker.swift */,
 			);
 			path = "Adoptuj zwierzaka";
 			sourceTree = "<group>";
@@ -302,10 +313,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC550DC12BDD37E20095050D /* ImagePicker.swift in Sources */,
 				DC66306C2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld in Sources */,
 				DC6630942BD57F6A00A34903 /* MainView.swift in Sources */,
 				DC6630692BD532BB00A34903 /* Persistence.swift in Sources */,
-				DCE296582BD7A9440008A1A4 /* ImagePicker.swift in Sources */,
+				DC550DBF2BDD36D00095050D /* AppState.swift in Sources */,
 				DC6630622BD532BA00A34903 /* ContentView.swift in Sources */,
 				DC6630962BD5807700A34903 /* PetListView.swift in Sources */,
 				DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */,

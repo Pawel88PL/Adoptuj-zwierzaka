@@ -31,12 +31,20 @@ struct MainView: View {
                     .opacity(fadeInOnAppear ? 1 : 0)
                     .animation(Animation.easeIn.delay(1), value: fadeInOnAppear)
                 
-                Text("Znajdź swojego nowego przyjaciela.")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .opacity(fadeInOnAppear ? 1 : 0)
-                    .animation(Animation.easeIn.delay(1.5), value: fadeInOnAppear)
-                    .padding(.vertical)
+                HStack {
+                    Spacer() // Dodaje elastyczną przestrzeń przed tekstem
+                    Text("Znajdź swojego nowego przyjaciela. Podaruj nowy dom potrzebującym zwierzakom.")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .opacity(fadeInOnAppear ? 1 : 0)
+                        .animation(Animation.easeIn.delay(1.5), value: fadeInOnAppear)
+                        .padding(.vertical)
+                    Spacer() // Dodaje elastyczną przestrzeń po tekście
+                }
+                .frame(maxWidth: .infinity) // Rozciąga HStack na całą dostępną szerokość
+                
+                
+                
                 
                 Spacer()
                 

@@ -2,10 +2,9 @@
 //  ImagePicker.swift
 //  Adoptuj zwierzaka
 //
-//  Created by Paweł Staniul on 23/04/2024.
+//  Created by Paweł Staniul on 27/04/2024.
 //
 
-import Foundation
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {

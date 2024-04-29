@@ -7,50 +7,14 @@
 
 import SwiftUI
 
-class AppState: ObservableObject {
-    @Published var isAuthenticated = false
-    @Published var selectedView: AnyView = AnyView(MainView())
-    @Published var alertMessage: String? = nil
-    
-    // Metoda do zmiany widoku
-    func changeView(to view: AnyView) {
-        DispatchQueue.main.async {
-            self.selectedView = view
-        }
-    }
-    
-    // Metoda do logowania użytkownika
-    func logIn() {
-        DispatchQueue.main.async {
-            self.isAuthenticated = true
-            self.selectedView = AnyView(PetListView())
-            self.alertMessage = "Nastąpiło poprawne zalogowanie! Możesz teraz przeglądać listę dostępnych zwierząt."
-        }
-    }
-    
-    // Metoda do wylogowania użytkownika
-    func logOut() {
-        DispatchQueue.main.async {
-            self.isAuthenticated = false
-            self.selectedView = AnyView(MainView())
-        }
-    }
-    
-    // Metoda do obsługi rejestracji użytkownika
-    func registerUser() {
-        DispatchQueue.main.async {
-            self.selectedView = AnyView(LoginView())
-            self.alertMessage = "Rejestracja zakończona sukcesem! Dziękujemy za założenie konta."
-        }
-    }
-}
-
-
 @main
 struct Adoptuj_zwierzakaApp: App {
+    // Stan aplikacji przechowujący zarówno dane użytkownika, jak i bieżący widok.
     @StateObject var appState = AppState()
+    // Kontroler persystencji zarządzający bazą danych CoreData.
     let persistenceController = PersistenceController.shared
     
+    // Główny punkt wejścia aplikacji określający zawartość głównego okna.
     var body: some Scene {
         WindowGroup {
             ContentView()
