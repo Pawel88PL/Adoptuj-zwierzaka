@@ -44,10 +44,8 @@ struct LoginView: View {
                 .padding(.vertical)
                 
                 Button("Zaloguj się") {
-                    UserManager.shared.logIn(email: email, password: password, context: viewContext) { success in
-                        if success {
-                            appState.logIn()
-                        } else {
+                    UserManager.shared.logIn(email: email, password: password, context: viewContext, appState: appState) { success in
+                        if !success {
                             loginFailed = true
                         }
                     }

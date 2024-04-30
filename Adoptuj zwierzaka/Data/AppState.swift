@@ -10,12 +10,16 @@ import SwiftUI
 
 // Klasa AppState zarządza stanem uwierzytelnienia i nawigacją w aplikacji.
 class AppState: ObservableObject {
+    // Instancja Singleton
+    static let shared = AppState()
     // Zmienna śledząca, czy użytkownik jest zalogowany.
     @Published var isAuthenticated = false
     // Aktualnie wyświetlany widok w aplikacji.
     @Published var selectedView: AnyView = AnyView(MainView())
     // Wiadomość alertu do wyświetlenia po wykonaniu określonych akcji.
     @Published var alertMessage: String? = nil
+    // Domyślnie każdy użytkownik jest user
+    @Published var userRole: String = "user"
     
     /// Zmienia bieżący widok na inny.
     /// - Parameter view: Widok, na który aplikacja powinna przejść.
@@ -26,10 +30,12 @@ class AppState: ObservableObject {
     }
     
     /// Loguje użytkownika, zmieniając stan uwierzytelnienia na true i aktualizując widok na listę zwierząt.
-    func logIn() {
+    func logIn(user: User) {
         DispatchQueue.main.async {
+            self.userRole = user.role ?? "user"
             self.isAuthenticated = true
             self.selectedView = AnyView(PetListView())
+            print("Wywołanie z klasy AppState. Rola użytkownika: ", self.userRole)
             self.alertMessage = "Nastąpiło poprawne zalogowanie! Możesz teraz przeglądać listę dostępnych zwierząt."
         }
     }

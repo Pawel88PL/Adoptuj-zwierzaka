@@ -10,6 +10,7 @@ import CryptoKit
 import SwiftUI
 
 class UserManager {
+    
     static let shared = UserManager()
     
     private init() {}
@@ -34,6 +35,7 @@ class UserManager {
         newUser.firstName = firstName
         newUser.secondName = secondName
         newUser.password = hashedPassword
+        newUser.role = "user"
         
         do {
             try context.save()
@@ -43,22 +45,24 @@ class UserManager {
         }
     }
     
-    func logIn(email: String, password: String, context: NSManagedObjectContext, completion: @escaping (Bool) -> Void) {
+    func logIn(email: String, password: String, context: NSManagedObjectContext, appState: AppState, completion: @escaping (Bool) -> Void) {
         let hashedPassword = hashPassword(password)
         let request: NSFetchRequest<User> = User.fetchRequest()
         request.predicate = NSPredicate(format: "email == %@ AND password == %@", email, hashedPassword)
         
         do {
             let results = try context.fetch(request)
-            if results.isEmpty {
-                completion(false)
-            } else {
+            if let user = results.first {
+                DispatchQueue.main.async {
+                    appState.logIn(user: user)
+                }
                 completion(true)
+            } else {
+                completion(false)
             }
         } catch {
             print("Login error: \(error)")
             completion(false)
         }
     }
-    
 }
