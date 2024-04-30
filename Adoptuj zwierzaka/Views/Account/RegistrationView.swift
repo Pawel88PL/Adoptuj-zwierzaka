@@ -14,10 +14,12 @@ struct RegistrationView: View {
     @State private var email = ""
     @State private var firstName = ""
     @State private var secondName = ""
+    @State private var phoneNumber = ""
     @State private var password = ""
     @State private var confirmPassword = ""
     @State private var registrationFailed = false
     @State private var errorMessage = ""
+    @FocusState private var emailFieldFocused: Bool
     
     var body: some View {
         NavigationView {
@@ -29,6 +31,8 @@ struct RegistrationView: View {
                         TextField("Email", text: $email)
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
+                            .disableAutocorrection(true)
+                            .focused($emailFieldFocused)
                     }
                     HStack {
                         Image(systemName: "person.fill")
@@ -39,6 +43,13 @@ struct RegistrationView: View {
                         Image(systemName: "person.fill")
                             .foregroundColor(.gray)
                         TextField("Nazwisko", text: $secondName)
+                    }
+                    HStack {
+                        Image(systemName: "phone.fill")
+                            .foregroundColor(.gray)
+                        TextField("Numer telefonu", text: $phoneNumber)
+                            .keyboardType(.phonePad)
+                            .disableAutocorrection(true)
                     }
                     HStack {
                         Image(systemName: "lock.fill")
@@ -70,12 +81,15 @@ struct RegistrationView: View {
                 .shadow(radius: 5)
             }
             .navigationBarTitle("Rejestracja", displayMode: .inline)
+            .onAppear {
+                self.emailFieldFocused = true
+            }
         }
     }
     
     func registerUser() {
         registrationFailed = false
-        guard password == confirmPassword, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !secondName.isEmpty else {
+        guard password == confirmPassword, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !secondName.isEmpty, !phoneNumber.isEmpty else {
             registrationFailed = true
             errorMessage = "Wszystkie pola muszą być wypełnione i hasła muszą być takie same."
             return
@@ -85,6 +99,7 @@ struct RegistrationView: View {
             email: email,
             firstName: firstName,
             secondName: secondName,
+            phoneNumber: phoneNumber,
             password: password,
             context: viewContext
         ) { result in

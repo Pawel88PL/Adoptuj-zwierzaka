@@ -25,6 +25,7 @@ class UserManager {
         email: String,
         firstName: String,
         secondName: String,
+        phoneNumber: String,
         password: String,
         context: NSManagedObjectContext,
         completion: @escaping (Result<User, Error>) -> Void
@@ -34,6 +35,7 @@ class UserManager {
         newUser.email = email
         newUser.firstName = firstName
         newUser.secondName = secondName
+        newUser.phoneNumber = phoneNumber
         newUser.password = hashedPassword
         newUser.role = "user"
         

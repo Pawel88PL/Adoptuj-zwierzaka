@@ -15,7 +15,8 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var loginFailed = false
-    @State private var showAlert = false  // Kontrola wyświetlania alertu
+    @State private var showAlert = false
+    @FocusState private var emailFieldFocused: Bool
     
     var body: some View {
         NavigationView {
@@ -28,6 +29,7 @@ struct LoginView: View {
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
                             .disableAutocorrection(true)
+                            .focused($emailFieldFocused)
                     }
                     HStack {
                         Image(systemName: "lock.fill")
@@ -65,6 +67,7 @@ struct LoginView: View {
                 }))
             }
             .onAppear {
+                self.emailFieldFocused = true
                 // Sprawdzenie, czy jest ustawiona wiadomość alertu
                 if let message = appState.alertMessage, !message.isEmpty {
                     showAlert = true

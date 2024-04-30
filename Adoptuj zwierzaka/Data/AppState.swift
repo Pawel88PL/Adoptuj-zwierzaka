@@ -39,7 +39,11 @@ class AppState: ObservableObject {
             self.isAuthenticated = true
             self.selectedView = AnyView(PetListView())
             print("Wywołanie z klasy AppState. Rola użytkownika: ", self.userRole)
-            self.alertMessage = "Nastąpiło poprawne zalogowanie! Możesz teraz przeglądać listę dostępnych zwierząt."
+            if self.userRole == "admin" {
+                self.alertMessage = "Witamy w palenu administratora."
+            } else {
+                self.alertMessage = "Możesz teraz przeglądać listę dostępnych zwierząt."
+            }
         }
     }
     
