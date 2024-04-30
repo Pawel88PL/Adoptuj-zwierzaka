@@ -18,7 +18,7 @@ struct RegistrationView: View {
     @State private var confirmPassword = ""
     @State private var registrationFailed = false
     @State private var errorMessage = ""
-
+    
     var body: some View {
         NavigationView {
             Form {
@@ -50,7 +50,7 @@ struct RegistrationView: View {
                             .foregroundColor(.gray)
                         SecureField("Potwierdź hasło", text: $confirmPassword)
                     }
-
+                    
                     if registrationFailed {
                         Text(errorMessage)
                             .foregroundColor(.red)
@@ -58,7 +58,7 @@ struct RegistrationView: View {
                     }
                 }
                 .padding(.vertical)
-
+                
                 Button("Zarejestruj się") {
                     registerUser()
                 }
@@ -72,7 +72,7 @@ struct RegistrationView: View {
             .navigationBarTitle("Rejestracja", displayMode: .inline)
         }
     }
-
+    
     func registerUser() {
         registrationFailed = false
         guard password == confirmPassword, !email.isEmpty, !password.isEmpty, !firstName.isEmpty, !secondName.isEmpty else {
@@ -80,20 +80,21 @@ struct RegistrationView: View {
             errorMessage = "Wszystkie pola muszą być wypełnione i hasła muszą być takie same."
             return
         }
-
-        let newUser = User(context: viewContext)
-        newUser.email = email
-        newUser.firstName = firstName
-        newUser.secondName = secondName
-        newUser.password = password
-
-        do {
-            try viewContext.save()
-            print("User registered successfully")
-            appState.registerUser()
-        } catch {
-            errorMessage = "Nie udało się zapisać użytkownika: \(error.localizedDescription)"
-            registrationFailed = true
+        
+        UserManager.shared.registerUser(
+            email: email,
+            firstName: firstName,
+            secondName: secondName,
+            password: password,
+            context: viewContext
+        ) { result in
+            switch result {
+            case .success(_):
+                appState.registerUser()
+            case .failure(let error):
+                errorMessage = "Nie udało się zapisać użytkownika: \(error.localizedDescription)"
+                registrationFailed = true
+            }
         }
     }
 }

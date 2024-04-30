@@ -34,7 +34,7 @@ struct LoginView: View {
                             .foregroundColor(.gray)
                         SecureField("Hasło", text: $password)
                     }
-
+                    
                     if loginFailed {
                         Text("Niepoprawna nazwa użytkownika lub hasło")
                             .foregroundColor(.red)
@@ -42,9 +42,15 @@ struct LoginView: View {
                     }
                 }
                 .padding(.vertical)
-
+                
                 Button("Zaloguj się") {
-                    login()
+                    UserManager.shared.logIn(email: email, password: password, context: viewContext) { success in
+                        if success {
+                            appState.logIn()
+                        } else {
+                            loginFailed = true
+                        }
+                    }
                 }
                 .padding()
                 .frame(maxWidth: .infinity)
@@ -66,17 +72,6 @@ struct LoginView: View {
                     showAlert = true
                 }
             }
-        }
-    }
-    
-    func login() {
-        loginFailed = false
-        let matchingUser = users.first { $0.email == email && $0.password == password }
-        
-        if matchingUser != nil {
-            appState.logIn()
-        } else {
-            loginFailed = true
         }
     }
 }
