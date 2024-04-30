@@ -30,10 +30,13 @@ struct PetListView: View {
                 .onDelete(perform: deleteItems)
             }
             .listStyle(PlainListStyle())
-            .navigationTitle("Zwierzaki")
+            .padding(.top, 30)
             .navigationBarItems(
                 leading: logoutButton(),
-                trailing: addButton()
+                trailing: HStack {
+                    addNewAnimalButton()
+                    userViewButton()
+                }
             )
             .sheet(isPresented: $showingAddPetView) {
                 AddPetView().environment(\.managedObjectContext, viewContext)
@@ -52,21 +55,46 @@ struct PetListView: View {
         }
     }
     
+    private func addNewAnimalButton() -> some View {
+        Group {
+            if appState.userRole == "admin" {
+                Button(action: {
+                    showingAddPetView = true
+                }) {
+                    Label("Dodaj zwierzaka", systemImage: "plus")
+                        .foregroundColor(.white)
+                }
+                .padding(7)
+                .frame(maxWidth: .infinity)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]), startPoint: .leading, endPoint: .trailing))
+                .cornerRadius(10)
+                .shadow(radius: 10, x: 0, y: 0)
+            }
+        }
+    }
+    
     private func logoutButton() -> some View {
         Button("Wyloguj") {
             appState.logOut()
         }
-        .foregroundColor(.red)
-        .font(.headline)
+        .padding(7)
+        .frame(maxWidth: .infinity)
+        .background(Color.red)
+        .foregroundColor(.white)
+        .cornerRadius(10)
+        .shadow(radius: 10, x: 0, y: 0)
     }
     
-    private func addButton() -> some View {
-        Button(action: {
-            showingAddPetView = true
-        }) {
-            Image(systemName: "plus")
-                .imageScale(.large)
+    private func userViewButton() -> some View {
+        Button("Witaj \(appState.userFirstName)"){
+            appState.userView()
         }
+        .shadow(radius: 10, x: 0, y: 0)
+        .padding(7)
+        .frame(maxWidth: .infinity)
+        .background(Color.black)
+        .foregroundColor(Color.white)
+        .cornerRadius(10)
     }
     
     private func deleteItems(offsets: IndexSet) {
@@ -104,5 +132,11 @@ struct PetRow: View {
             .padding(.leading, 8)
             Spacer()
         }
+    }
+}
+
+struct PetListView_Previews: PreviewProvider {
+    static var previews: some View {
+        PetListView().environmentObject(AppState())
     }
 }

@@ -10,6 +10,7 @@
 		DC550DBF2BDD36D00095050D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DBE2BDD36D00095050D /* AppState.swift */; };
 		DC550DC12BDD37E20095050D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC02BDD37E20095050D /* ImagePicker.swift */; };
 		DC550DC62BE0C14D0095050D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC52BE0C14D0095050D /* UserManager.swift */; };
+		DC550DC82BE0F5CC0095050D /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC72BE0F5CC0095050D /* UserView.swift */; };
 		DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */; };
 		DC6630622BD532BA00A34903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630612BD532BA00A34903 /* ContentView.swift */; };
 		DC6630642BD532BB00A34903 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6630632BD532BB00A34903 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		DC550DBE2BDD36D00095050D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DC550DC02BDD37E20095050D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DC550DC52BE0C14D0095050D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		DC550DC72BE0F5CC0095050D /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		DC66305C2BD532BA00A34903 /* Adoptuj zwierzaka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adoptuj zwierzaka.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaApp.swift; sourceTree = "<group>"; };
 		DC6630612BD532BA00A34903 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			children = (
 				DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */,
 				DCE296642BD7E24E0008A1A4 /* LoginView.swift */,
+				DC550DC72BE0F5CC0095050D /* UserView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				DCE296652BD7E24E0008A1A4 /* LoginView.swift in Sources */,
 				DC6630902BD542B400A34903 /* AddPetView.swift in Sources */,
 				DCE296632BD7E1E40008A1A4 /* RegistrationView.swift in Sources */,
+				DC550DC82BE0F5CC0095050D /* UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
