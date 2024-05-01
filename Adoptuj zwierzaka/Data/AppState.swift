@@ -18,10 +18,12 @@ class AppState: ObservableObject {
     @Published var selectedView: AnyView = AnyView(MainView())
     // Wiadomość alertu do wyświetlenia po wykonaniu określonych akcji.
     @Published var alertMessage: String? = nil
-    // Deklaracja nazwy użytkownika
-    @Published  var userFirstName: String = "name"
-    // Domyślnie każdy użytkownik jest user
-    @Published var userRole: String = "user"
+    // Deklaracja pól użytkownika
+    @Published  var userFirstName: String = ""
+    @Published  var userSecondName: String = ""
+    @Published  var userPhoneNumber: String = ""
+    @Published  var userEmail: String = ""
+    @Published var userRole: String = ""
     
     /// Zmienia bieżący widok na inny.
     /// - Parameter view: Widok, na który aplikacja powinna przejść.
@@ -34,7 +36,10 @@ class AppState: ObservableObject {
     /// Loguje użytkownika, zmieniając stan uwierzytelnienia na true i aktualizując widok na listę zwierząt.
     func logIn(user: User) {
         DispatchQueue.main.async {
-            self.userFirstName = user.firstName ?? "firsName"
+            self.userFirstName = user.firstName ?? "firstName"
+            self.userSecondName = user.secondName ?? "secondName"
+            self.userPhoneNumber = user.phoneNumber ?? "phoneNumber"
+            self.userEmail = user.email ?? "e-mail"
             self.userRole = user.role ?? "user"
             self.isAuthenticated = true
             self.selectedView = AnyView(PetListView())
@@ -60,12 +65,6 @@ class AppState: ObservableObject {
         DispatchQueue.main.async {
             self.selectedView = AnyView(LoginView())
             self.alertMessage = "Rejestracja zakończona sukcesem! Dziękujemy za założenie konta."
-        }
-    }
-    
-    func userView() {
-        DispatchQueue.main.async {
-            self.selectedView = AnyView(UserView())
         }
     }
 }

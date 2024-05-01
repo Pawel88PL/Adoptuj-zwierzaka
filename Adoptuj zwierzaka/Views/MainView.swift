@@ -70,7 +70,6 @@ struct MainView: View {
             }
             .padding(.horizontal, 20.0)
             .appBackground()
-            .navigationBarHidden(true)
             .onAppear {
                 fadeInOnAppear = true
             }

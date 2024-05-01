@@ -32,11 +32,8 @@ struct PetListView: View {
             .listStyle(PlainListStyle())
             .padding(.top, 30)
             .navigationBarItems(
-                leading: logoutButton(),
-                trailing: HStack {
-                    addNewAnimalButton()
-                    userViewButton()
-                }
+                leading: userViewButton(),
+                trailing: addNewAnimalButton()
             )
             .sheet(isPresented: $showingAddPetView) {
                 AddPetView().environment(\.managedObjectContext, viewContext)
@@ -73,28 +70,16 @@ struct PetListView: View {
         }
     }
     
-    private func logoutButton() -> some View {
-        Button("Wyloguj") {
-            appState.logOut()
-        }
-        .padding(7)
-        .frame(maxWidth: .infinity)
-        .background(Color.red)
-        .foregroundColor(.white)
-        .cornerRadius(10)
-        .shadow(radius: 10, x: 0, y: 0)
-    }
-    
     private func userViewButton() -> some View {
-        Button("Witaj \(appState.userFirstName)"){
-            appState.userView()
+        NavigationLink(destination: UserView().environmentObject(appState)) {
+            Text("Witaj \(appState.userFirstName)")
+                .foregroundColor(.white)
+                .padding(7)
+                .frame(maxWidth: .infinity)
+                .background(Color.black)
+                .cornerRadius(10)
+                .shadow(radius: 10, x: 0, y: 0)
         }
-        .shadow(radius: 10, x: 0, y: 0)
-        .padding(7)
-        .frame(maxWidth: .infinity)
-        .background(Color.black)
-        .foregroundColor(Color.white)
-        .cornerRadius(10)
     }
     
     private func deleteItems(offsets: IndexSet) {
