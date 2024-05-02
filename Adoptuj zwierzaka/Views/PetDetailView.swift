@@ -97,12 +97,7 @@ struct PetDetailView: View {
     }
     
     private func adoptPet() {
-        if pet.isAvailable {
-            print("To zwierzę zostało już adoptowane.")
-            return
-        }
-        
-        pet.isAvailable = true
+        pet.isAvailable = false
         do {
             /// W tym miejscu powinna pojawić się logika wysłania wniosku
             // sendAdoptionApplication() {}
@@ -113,8 +108,6 @@ struct PetDetailView: View {
             print("Nie udało się zapisać adopcji: \(error.localizedDescription)")
         }
     }
-    
-    
 }
 
 struct PetDetailView_Previews: PreviewProvider {

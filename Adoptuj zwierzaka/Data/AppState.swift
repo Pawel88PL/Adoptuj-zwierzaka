@@ -43,7 +43,6 @@ class AppState: ObservableObject {
             self.userRole = user.role ?? "user"
             self.isAuthenticated = true
             self.selectedView = AnyView(PetListView())
-            print("Wywołanie z klasy AppState. Rola użytkownika: ", self.userRole)
             if self.userRole == "admin" {
                 self.alertMessage = "Witamy w palenu administratora."
             } else {

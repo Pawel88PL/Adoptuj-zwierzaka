@@ -11,8 +11,11 @@ import CoreData
 struct PetListView: View {
     @EnvironmentObject var appState: AppState
     @Environment(\.managedObjectContext) private var viewContext
+    // Dostosowanie FetchRequest do filtracji tylko zwierząt nieadoptowanych
     @FetchRequest(
+        entity: Pet.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Pet.name, ascending: true)],
+        predicate: NSPredicate(format: "isAvailable == YES"),
         animation: .default)
     private var pets: FetchedResults<Pet>
     
@@ -22,12 +25,31 @@ struct PetListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(pets) { pet in
-                    NavigationLink(destination: PetDetailView(pet: pet)) {
-                        PetRow(pet: pet)
+                if pets.isEmpty {
+                    VStack(alignment: .center) {
+                        
+                        Image("EmptyList")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .clipped()
+                            .cornerRadius(20)
+                            .padding(.horizontal, 5.0)
+                        
+                        Divider()
+                        
+                        Text("Aktualnie brak dostępnych zwierząt do adopcji.")
+                            .foregroundColor(.secondary)
+                            .padding(50)
                     }
+                    
+                } else {
+                    ForEach(pets) { pet in
+                        NavigationLink(destination: PetDetailView(pet: pet)) {
+                            PetRow(pet: pet)
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
                 }
-                .onDelete(perform: deleteItems)
             }
             .listStyle(PlainListStyle())
             .padding(.top, 30)
@@ -39,7 +61,7 @@ struct PetListView: View {
                 AddPetView().environment(\.managedObjectContext, viewContext)
             }
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Zalogowano pomyślnie"), message: Text(appState.alertMessage ?? "Zalogowano pomyślnie"), dismissButton: .default(Text("OK"), action: {
+                Alert(title: Text("Sukces"), message: Text(appState.alertMessage ?? "Zalogowano pomyślnie"), dismissButton: .default(Text("OK"), action: {
                     // Zresetowanie alertu po wyświetleniu
                     appState.alertMessage = nil
                 }))
