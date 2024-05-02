@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct PetDetailView: View {
+    @Environment(\.managedObjectContext) var viewContext
+    @Environment(\.presentationMode) var presentationMode
     var pet: Pet
-
+    @State private var showAdoptionAlert = false
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -25,9 +28,33 @@ struct PetDetailView: View {
                 
                 // Karta z informacjami
                 VStack(alignment: .leading, spacing: 10) {
-                    Text(pet.name ?? "Nieznany")
-                        .font(.title)
-                        .fontWeight(.bold)
+                    HStack{
+                        Text(pet.name ?? "Nieznany")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                        
+                        Button("Adoptuj") {
+                            self.showAdoptionAlert = true
+                        }
+                        .padding()
+                        .background(Color.green)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 5)
+                        .alert(isPresented: $showAdoptionAlert) {
+                            Alert(
+                                title: Text("Wniosek wysłany!"),
+                                message: Text("Twój wniosek będzie rozpatrzony w ciągu 24 godzin. Skontaktujemy się z Tobą w celu weryfikacji danych."),
+                                dismissButton: .default(Text("Ok"), action: {
+                                    adoptPet()
+                                })
+                            )
+                        }
+                    }
+                    .padding(.horizontal)
+                    
                     
                     Divider()
                     
@@ -67,5 +94,41 @@ struct PetDetailView: View {
         .navigationBarTitle(Text(pet.name ?? "Szczegóły"), displayMode: .inline)
         .appBackground()
         .edgesIgnoringSafeArea(.bottom)
+    }
+    
+    private func adoptPet() {
+        if pet.isAvailable {
+            print("To zwierzę zostało już adoptowane.")
+            return
+        }
+        
+        pet.isAvailable = true
+        do {
+            /// W tym miejscu powinna pojawić się logika wysłania wniosku
+            // sendAdoptionApplication() {}
+            try viewContext.save()
+            print("Wniosek został wysłany.")
+            self.presentationMode.wrappedValue.dismiss()
+        } catch {
+            print("Nie udało się zapisać adopcji: \(error.localizedDescription)")
+        }
+    }
+    
+    
+}
+
+struct PetDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let context = PersistenceController.shared.container.viewContext
+        let newPet = Pet(context: context)
+        newPet.name = "Rex"
+        newPet.breed = "Labrador"
+        newPet.age = 3
+        newPet.descriptions = "Przyjazny i energiczny pies"
+        newPet.isAvailable = false
+        
+        return PetDetailView(pet: newPet)
+            .environment(\.managedObjectContext, context)
+            .environmentObject(AppState())
     }
 }

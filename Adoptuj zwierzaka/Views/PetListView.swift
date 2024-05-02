@@ -39,7 +39,7 @@ struct PetListView: View {
                 AddPetView().environment(\.managedObjectContext, viewContext)
             }
             .alert(isPresented: $showAlert) {
-                Alert(title: Text("Sukces"), message: Text(appState.alertMessage ?? "Zalogowano pomyślnie"), dismissButton: .default(Text("OK"), action: {
+                Alert(title: Text("Zalogowano pomyślnie"), message: Text(appState.alertMessage ?? "Zalogowano pomyślnie"), dismissButton: .default(Text("OK"), action: {
                     // Zresetowanie alertu po wyświetleniu
                     appState.alertMessage = nil
                 }))
