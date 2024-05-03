@@ -46,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC0AD81F2BE49C9500D5AFFF /* DbLocation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DbLocation.md; sourceTree = "<group>"; };
+		DC0AD8202BE4BB4900D5AFFF /* DoZrobienia.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DoZrobienia.md; sourceTree = "<group>"; };
 		DC550DBE2BDD36D00095050D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DC550DC02BDD37E20095050D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DC550DC52BE0C14D0095050D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -101,6 +103,8 @@
 			children = (
 				DC550DBE2BDD36D00095050D /* AppState.swift */,
 				DC550DC02BDD37E20095050D /* ImagePicker.swift */,
+				DC0AD81F2BE49C9500D5AFFF /* DbLocation.md */,
+				DC0AD8202BE4BB4900D5AFFF /* DoZrobienia.md */,
 			);
 			path = Data;
 			sourceTree = "<group>";
