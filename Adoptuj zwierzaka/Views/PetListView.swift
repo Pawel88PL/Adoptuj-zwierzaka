@@ -21,6 +21,7 @@ struct PetListView: View {
     
     @State private var showingAddPetView = false
     @State private var showAlert = false
+    @State private var errorMessage: String = ""
     
     var body: some View {
         NavigationView {
@@ -48,7 +49,7 @@ struct PetListView: View {
                             PetRow(pet: pet)
                         }
                     }
-                    .onDelete(perform: deleteItems)
+                    .onDelete(perform: appState.userRole == "admin" ? deleteItems : nil)
                 }
             }
             .listStyle(PlainListStyle())
@@ -105,6 +106,12 @@ struct PetListView: View {
     }
     
     private func deleteItems(offsets: IndexSet) {
+        if appState.userRole != "admin" {
+            showAlert = true
+            errorMessage = "Brak uprawnień do usunięcia zwierzęcia."
+            return
+        }
+
         withAnimation {
             offsets.map { pets[$0] }.forEach(viewContext.delete)
             
