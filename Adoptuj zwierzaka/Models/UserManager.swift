@@ -56,6 +56,7 @@ class UserManager {
             let results = try context.fetch(request)
             if let user = results.first {
                 DispatchQueue.main.async {
+                    appState.currentUser = user
                     appState.logIn(user: user)
                 }
                 completion(true)
@@ -65,6 +66,32 @@ class UserManager {
         } catch {
             print("Login error: \(error)")
             completion(false)
+        }
+    }
+    
+    func editUser(
+        user: User,
+        email: String?,
+        firstName: String?,
+        secondName: String?,
+        phoneNumber: String?,
+        context: NSManagedObjectContext,
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        context.perform {
+            if let email = email { user.email = email }
+            if let firstName = firstName { user.firstName = firstName }
+            if let secondName = secondName { user.secondName = secondName }
+            if let phoneNumber = phoneNumber { user.phoneNumber = phoneNumber }
+            
+            do {
+                try context.save()
+                completion(.success(()))
+                print("Aktualizacja danych użytkownika przebiegła pomyślnie.")
+            } catch {
+                completion(.failure(error))
+                print("Failed to update user: \(error.localizedDescription)")
+            }
         }
     }
 }

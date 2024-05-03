@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC0AD8222BE5482B00D5AFFF /* UserEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0AD8212BE5482B00D5AFFF /* UserEditView.swift */; };
 		DC550DBF2BDD36D00095050D /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DBE2BDD36D00095050D /* AppState.swift */; };
 		DC550DC12BDD37E20095050D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC02BDD37E20095050D /* ImagePicker.swift */; };
 		DC550DC62BE0C14D0095050D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC52BE0C14D0095050D /* UserManager.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		DC0AD81F2BE49C9500D5AFFF /* DbLocation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DbLocation.md; sourceTree = "<group>"; };
 		DC0AD8202BE4BB4900D5AFFF /* DoZrobienia.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DoZrobienia.md; sourceTree = "<group>"; };
+		DC0AD8212BE5482B00D5AFFF /* UserEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEditView.swift; sourceTree = "<group>"; };
 		DC550DBE2BDD36D00095050D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		DC550DC02BDD37E20095050D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DC550DC52BE0C14D0095050D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */,
 				DCE296642BD7E24E0008A1A4 /* LoginView.swift */,
 				DC550DC72BE0F5CC0095050D /* UserView.swift */,
+				DC0AD8212BE5482B00D5AFFF /* UserEditView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				DC550DBF2BDD36D00095050D /* AppState.swift in Sources */,
 				DC6630622BD532BA00A34903 /* ContentView.swift in Sources */,
 				DC6630962BD5807700A34903 /* PetListView.swift in Sources */,
+				DC0AD8222BE5482B00D5AFFF /* UserEditView.swift in Sources */,
 				DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */,
 				DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */,
 				DCE296652BD7E24E0008A1A4 /* LoginView.swift in Sources */,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UserView: View {
     @EnvironmentObject var appState: AppState
-
+    
     var body: some View {
         Form {
             Section(header: Text("Informacje o użytkowniku").font(.headline)) {
@@ -48,11 +48,13 @@ struct UserView: View {
                     Text("Wyloguj")
                         .foregroundColor(.red)
                 }
-                Button("Edytuj") {
-                    // Akcja edycji profilu
-                    print("Edytuj profil")
+                
+                if let user = appState.currentUser {
+                    NavigationLink(destination: UserEditView(user: user).environmentObject(appState)) {
+                        Text("Edytuj")
+                            .foregroundColor(.blue)
+                    }
                 }
-                .foregroundColor(.blue)
             }
         }
         .navigationBarTitle("Panel użytkownika", displayMode: .inline)

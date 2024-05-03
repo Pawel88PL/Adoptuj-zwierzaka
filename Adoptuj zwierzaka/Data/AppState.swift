@@ -19,6 +19,7 @@ class AppState: ObservableObject {
     // Wiadomość alertu do wyświetlenia po wykonaniu określonych akcji.
     @Published var alertMessage: String? = nil
     // Deklaracja pól użytkownika
+    @Published var currentUser: User?
     @Published  var userFirstName: String = ""
     @Published  var userSecondName: String = ""
     @Published  var userPhoneNumber: String = ""
@@ -66,4 +67,16 @@ class AppState: ObservableObject {
             self.alertMessage = "Rejestracja zakończona sukcesem! Dziękujemy za założenie konta."
         }
     }
+    
+    /// Aktualizacja wyświetlanych danych użytkownika
+    func updateUserDetails(user: User) {
+        DispatchQueue.main.async {
+            self.userFirstName = user.firstName ?? "Brak imienia"
+            self.userSecondName = user.secondName ?? "Brak nazwiska"
+            self.userPhoneNumber = user.phoneNumber ?? "Brak numeru"
+            self.userEmail = user.email ?? "Brak email"
+            self.userRole = user.role ?? "user"
+        }
+    }
+    
 }
