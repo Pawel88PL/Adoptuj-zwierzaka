@@ -42,13 +42,17 @@ struct PersistenceController {
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Adoptuj_zwierzaka")
         if inMemory {
-            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+            let storeDescription = NSPersistentStoreDescription(url: URL(fileURLWithPath: "/dev/null"))
+            storeDescription.shouldAddStoreAsynchronously = false // Ważne dla preview
+            container.persistentStoreDescriptions = [storeDescription]
         }
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        
+        container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-        })
+        }
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+    
 }

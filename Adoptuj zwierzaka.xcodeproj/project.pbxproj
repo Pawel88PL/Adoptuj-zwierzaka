@@ -12,15 +12,13 @@
 		DC550DC12BDD37E20095050D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC02BDD37E20095050D /* ImagePicker.swift */; };
 		DC550DC62BE0C14D0095050D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC52BE0C14D0095050D /* UserManager.swift */; };
 		DC550DC82BE0F5CC0095050D /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC550DC72BE0F5CC0095050D /* UserView.swift */; };
+		DC6302D22BE7B0120068AECA /* AdoptionRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6302D12BE7B0120068AECA /* AdoptionRequestsView.swift */; };
 		DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */; };
 		DC6630622BD532BA00A34903 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630612BD532BA00A34903 /* ContentView.swift */; };
 		DC6630642BD532BB00A34903 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6630632BD532BB00A34903 /* Assets.xcassets */; };
 		DC6630672BD532BB00A34903 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC6630662BD532BB00A34903 /* Preview Assets.xcassets */; };
 		DC6630692BD532BB00A34903 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630682BD532BB00A34903 /* Persistence.swift */; };
 		DC66306C2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC66306A2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodeld */; };
-		DC6630772BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630762BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift */; };
-		DC6630812BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630802BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift */; };
-		DC6630832BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */; };
 		DC6630902BD542B400A34903 /* AddPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC66308F2BD542B400A34903 /* AddPetView.swift */; };
 		DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630912BD55DF300A34903 /* PetDetailView.swift */; };
 		DC6630942BD57F6A00A34903 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630932BD57F6A00A34903 /* MainView.swift */; };
@@ -54,6 +52,7 @@
 		DC550DC02BDD37E20095050D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DC550DC52BE0C14D0095050D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		DC550DC72BE0F5CC0095050D /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		DC6302D12BE7B0120068AECA /* AdoptionRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdoptionRequestsView.swift; sourceTree = "<group>"; };
 		DC66305C2BD532BA00A34903 /* Adoptuj zwierzaka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adoptuj zwierzaka.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC66305F2BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaApp.swift; sourceTree = "<group>"; };
 		DC6630612BD532BA00A34903 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,10 +62,7 @@
 		DC66306B2BD532BB00A34903 /* Adoptuj_zwierzaka.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Adoptuj_zwierzaka.xcdatamodel; sourceTree = "<group>"; };
 		DC66306D2BD532BB00A34903 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC6630722BD532BB00A34903 /* Adoptuj zwierzakaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adoptuj zwierzakaTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC6630762BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaTests.swift; sourceTree = "<group>"; };
 		DC66307C2BD532BB00A34903 /* Adoptuj zwierzakaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Adoptuj zwierzakaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC6630802BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaUITests.swift; sourceTree = "<group>"; };
-		DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adoptuj_zwierzakaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DC66308F2BD542B400A34903 /* AddPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPetView.swift; sourceTree = "<group>"; };
 		DC6630912BD55DF300A34903 /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
 		DC6630932BD57F6A00A34903 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -123,8 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				DC66305E2BD532BA00A34903 /* Adoptuj zwierzaka */,
-				DC6630752BD532BB00A34903 /* Adoptuj zwierzakaTests */,
-				DC66307F2BD532BB00A34903 /* Adoptuj zwierzakaUITests */,
 				DC66305D2BD532BA00A34903 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -164,23 +158,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		DC6630752BD532BB00A34903 /* Adoptuj zwierzakaTests */ = {
-			isa = PBXGroup;
-			children = (
-				DC6630762BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift */,
-			);
-			path = "Adoptuj zwierzakaTests";
-			sourceTree = "<group>";
-		};
-		DC66307F2BD532BB00A34903 /* Adoptuj zwierzakaUITests */ = {
-			isa = PBXGroup;
-			children = (
-				DC6630802BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift */,
-				DC6630822BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift */,
-			);
-			path = "Adoptuj zwierzakaUITests";
-			sourceTree = "<group>";
-		};
 		DCE2965E2BD7E0D10008A1A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +166,7 @@
 				DC66308F2BD542B400A34903 /* AddPetView.swift */,
 				DC6630932BD57F6A00A34903 /* MainView.swift */,
 				DC6630952BD5807600A34903 /* PetListView.swift */,
+				DC6302D12BE7B0120068AECA /* AdoptionRequestsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,6 +322,7 @@
 				DC6630962BD5807700A34903 /* PetListView.swift in Sources */,
 				DC0AD8222BE5482B00D5AFFF /* UserEditView.swift in Sources */,
 				DC6630922BD55DF300A34903 /* PetDetailView.swift in Sources */,
+				DC6302D22BE7B0120068AECA /* AdoptionRequestsView.swift in Sources */,
 				DC6630602BD532BA00A34903 /* Adoptuj_zwierzakaApp.swift in Sources */,
 				DCE296652BD7E24E0008A1A4 /* LoginView.swift in Sources */,
 				DC6630902BD542B400A34903 /* AddPetView.swift in Sources */,
@@ -356,7 +335,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC6630772BD532BB00A34903 /* Adoptuj_zwierzakaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,8 +342,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC6630812BD532BB00A34903 /* Adoptuj_zwierzakaUITests.swift in Sources */,
-				DC6630832BD532BB00A34903 /* Adoptuj_zwierzakaUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

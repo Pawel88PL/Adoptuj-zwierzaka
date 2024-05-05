@@ -9,4 +9,5 @@ lista rzeczy do zrobienia:
 
 05.05.2024
 
-- w głównej liście zwierzaków umieścić suwak do podziału wyświetlania na psy i koty 
+- w głównej liście zwierzaków umieścić suwak do podziału wyświetlania na psy i koty -- ZROBIONE
+- powiązać adoptowanego zwierzaka z użytkownikiem

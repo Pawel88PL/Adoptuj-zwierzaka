@@ -30,8 +30,6 @@ struct PetListView: View {
                 .padding()
                 .onChange(of: selectedAnimalType) { newValue in
                     loadPets()
-                    print("Selected animal type changed to: \(newValue)")
-                    // Tutaj można również dodać logikę do odświeżania listy zwierząt
                 }
                 if pets.isEmpty {
                     emptySection

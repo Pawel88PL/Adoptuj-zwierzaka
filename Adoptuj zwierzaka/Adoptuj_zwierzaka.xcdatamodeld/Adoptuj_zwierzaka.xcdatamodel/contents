@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AdoptionRequest" representedClassName="AdoptionRequest" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="requestID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="status" optional="YES" attributeType="String"/>
+        <relationship name="pet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="adoptionRequests" inverseEntity="Pet"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="adoptionRequests" inverseEntity="User"/>
+    </entity>
     <entity name="Pet" representedClassName="Pet" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="animalType" optional="YES" attributeType="String"/>
@@ -9,6 +16,8 @@
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="isAvailable" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="adoptedBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="pets" inverseEntity="User"/>
+        <relationship name="adoptionRequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdoptionRequest" inverseName="pet" inverseEntity="AdoptionRequest"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
         <attribute name="email" optional="YES" attributeType="String"/>
@@ -17,5 +26,10 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
         <attribute name="role" optional="YES" attributeType="String"/>
         <attribute name="secondName" optional="YES" attributeType="String"/>
+        <relationship name="adoptionRequests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AdoptionRequest" inverseName="user" inverseEntity="AdoptionRequest"/>
+        <relationship name="pets" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="adoptedBy" inverseEntity="Pet"/>
+        <fetchedProperty name="fetchedProperty" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="User"/>
+        </fetchedProperty>
     </entity>
 </model>

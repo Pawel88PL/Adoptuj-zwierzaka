@@ -5,9 +5,12 @@
 //  Created by Paweł Staniul on 21/04/2024.
 //
 
+
 import SwiftUI
+import CoreData
 
 struct PetDetailView: View {
+    @EnvironmentObject var appState: AppState
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) var presentationMode
     var pet: Pet
@@ -97,17 +100,35 @@ struct PetDetailView: View {
     }
     
     private func adoptPet() {
+        // Utworzenie nowego wniosku adopcyjnego
+        let adoptionRequest = AdoptionRequest(context: viewContext)
+        adoptionRequest.dateCreated = Date() // Ustawienie aktualnej daty wniosku
+        
+        // Przypisanie zwierzęcia do wniosku
+        adoptionRequest.pet = pet
+        
+        // Przypisanie użytkownika do wniosku
+        if let currentUser = appState.currentUser {
+            adoptionRequest.user = currentUser
+        } else {
+            print("Błąd: Brak zalogowanego użytkownika.")
+            return // Zatrzymanie funkcji, jeśli nie ma zalogowanego użytkownika
+        }
+        
+        // Ustawienie zwierzęcia jako niedostępnego
         pet.isAvailable = false
+        
         do {
-            /// W tym miejscu powinna pojawić się logika wysłania wniosku
-            // sendAdoptionApplication() {}
+            // Zapisanie zmian w kontekście
             try viewContext.save()
-            print("Wniosek został wysłany.")
-            self.presentationMode.wrappedValue.dismiss()
+            print("Wniosek adopcyjny został wysłany i zapisany.")
+            self.presentationMode.wrappedValue.dismiss() // Powrót do poprzedniego widoku
         } catch {
             print("Nie udało się zapisać adopcji: \(error.localizedDescription)")
         }
     }
+    
+    
 }
 
 struct PetDetailView_Previews: PreviewProvider {
@@ -119,6 +140,11 @@ struct PetDetailView_Previews: PreviewProvider {
         newPet.age = 3
         newPet.descriptions = "Przyjazny i energiczny pies"
         newPet.isAvailable = false
+        
+        // Załadowanie zdjęcia z assetów
+        if let uiImage = UIImage(named: "EmptyList") {
+            newPet.image = uiImage.jpegData(compressionQuality: 1.0)
+        }
         
         return PetDetailView(pet: newPet)
             .environment(\.managedObjectContext, context)
