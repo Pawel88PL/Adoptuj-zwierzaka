@@ -33,7 +33,10 @@ struct UserView: View {
             if appState.userRole == "admin" {
                 NavigationLink("Przejrzyj wnioski adopcyjne", destination: AdoptionRequestsView())
             }
-            Button("Wyloguj", action: appState.logOut)
+            Button("Wyloguj") {
+                appState.logOut()
+            }
+            .foregroundColor(.red)
             
             if let user = appState.currentUser {
                 NavigationLink("Edytuj", destination: UserEditView(user: user).environmentObject(appState))

@@ -45,6 +45,29 @@ struct AdoptionRequestsView: View {
                 Text("Email: \(request.user?.email ?? "Nieznany email")")
                 Text("Tel: \(request.user?.phoneNumber ?? "Brak numeru")")
                 Text("Status: \(request.status ?? "Nieznany")")
+                
+                HStack {
+                    Button("Zatwierdź") {
+                        updateRequestStatus(request, newStatus: "Zatwierdzony")
+                    }
+                    .buttonStyle(BorderlessButtonStyle())
+                    .foregroundColor(.green)
+                    
+                    Button("Odrzuć") {
+                        updateRequestStatus(request, newStatus: "Odrzucony")
+                    }
+                    .buttonStyle(BorderlessButtonStyle())
+                    .foregroundColor(.red)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        deleteRequest(request)
+                    }) {
+                        Image(systemName: "trash")
+                            .foregroundColor(.red)
+                    }
+                }
             }
             .padding()
             .background(Color.secondary.opacity(0.1))
@@ -53,6 +76,27 @@ struct AdoptionRequestsView: View {
         }
         .listStyle(PlainListStyle())
         .navigationTitle("Wnioski Adopcyjne")
+    }
+    
+    private func updateRequestStatus(_ request: AdoptionRequest, newStatus: String) {
+        viewContext.perform {
+            request.status = newStatus
+            saveContext()
+        }
+    }
+    
+    private func deleteRequest(_ request: AdoptionRequest) {
+        viewContext.delete(request)
+        saveContext()
+    }
+    
+    private func saveContext() {
+        do {
+            try viewContext.save()
+        } catch {
+            let nsError = error as NSError
+            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        }
     }
 }
 
@@ -63,8 +107,30 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
+
 struct AdoptionRequestsView_Previews: PreviewProvider {
     static var previews: some View {
-        AdoptionRequestsView()
+        let context = PersistenceController.shared.container.viewContext
+        
+        // Stworzenie przykładowego kontekstu i danych
+        let request = AdoptionRequest(context: context)
+        request.dateCreated = Date()
+        request.status = "Oczekujący"
+        
+        let pet = Pet(context: context)
+        pet.name = "Fifi"
+        pet.breed = "Pudel"
+        pet.age = 5
+        request.pet = pet
+        
+        let user = User(context: context)
+        user.firstName = "Jan"
+        user.secondName = "Kowalski"
+        user.email = "jan@example.com"
+        user.phoneNumber = "123456789"
+        request.user = user
+        
+        return AdoptionRequestsView()
+            .environment(\.managedObjectContext, context)
     }
 }
