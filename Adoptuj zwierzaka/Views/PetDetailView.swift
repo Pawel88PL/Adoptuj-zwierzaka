@@ -48,11 +48,19 @@ struct PetDetailView: View {
                         .shadow(radius: 5)
                         .alert(isPresented: $showAdoptionAlert) {
                             Alert(
-                                title: Text("Wniosek wysłany!"),
-                                message: Text("Twój wniosek będzie rozpatrzony w ciągu 24 godzin. Skontaktujemy się z Tobą w celu weryfikacji danych."),
-                                dismissButton: .default(Text("Ok"), action: {
-                                    adoptPet()
-                                })
+                                title: Text("Potwierdzenie adopcji"),
+                                message: Text("Czy na pewno chcesz adoptować \(pet.name ?? "to zwierzę")?"),
+                                primaryButton: .default(Text("Tak"), action: {
+                                    PetManager.adoptPet(pet: pet, currentUser: appState.currentUser, context: viewContext) { success, error in
+                                        if success {
+                                            presentationMode.wrappedValue.dismiss()
+                                        } else {
+                                            // Obsługa błędu
+                                            print(error?.localizedDescription ?? "Nieznany błąd")
+                                        }
+                                    }
+                                }),
+                                secondaryButton: .cancel()
                             )
                         }
                     }
@@ -127,8 +135,6 @@ struct PetDetailView: View {
             print("Nie udało się zapisać adopcji: \(error.localizedDescription)")
         }
     }
-    
-    
 }
 
 struct PetDetailView_Previews: PreviewProvider {
