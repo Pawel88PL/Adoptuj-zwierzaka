@@ -66,7 +66,7 @@ struct PetListView: View {
         }
     }
     
-    private func loadPets() {
+    public func loadPets() {
         let request: NSFetchRequest<Pet> = Pet.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Pet.name, ascending: true)]
         var predicates: [NSPredicate] = [NSPredicate(format: "isAvailable == YES")]

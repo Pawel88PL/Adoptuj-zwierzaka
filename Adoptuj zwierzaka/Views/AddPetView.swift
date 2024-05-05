@@ -85,6 +85,7 @@ struct AddPetView: View {
                 newPet.image = imageData
             }
             
+            
             do {
                 try viewContext.save()
                 // reset formularza
