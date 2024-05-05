@@ -6,3 +6,7 @@ lista rzeczy do zrobienia:
 - zabezpieczyć możliwość usuwania zwierząt tylko przez administratora -- ZROBIONE 
 - zmienić wyświetlanie "admin" na "Administrator" w panelu użytkownika, poprawić wyświetlanie panelu użytkownika -- ZROBIONE
 - umożliwić edycję danych użytkownika -- ZROBIONE
+
+05.05.2024
+
+- w głównej liście zwierzaków umieścić suwak do podziału wyświetlania na psy i koty 

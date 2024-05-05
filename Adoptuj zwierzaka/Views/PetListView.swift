@@ -11,14 +11,9 @@ import CoreData
 struct PetListView: View {
     @EnvironmentObject var appState: AppState
     @Environment(\.managedObjectContext) private var viewContext
-    // Dostosowanie FetchRequest do filtracji tylko zwierząt nieadoptowanych
-    @FetchRequest(
-        entity: Pet.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Pet.name, ascending: true)],
-        predicate: NSPredicate(format: "isAvailable == YES"),
-        animation: .default)
-    private var pets: FetchedResults<Pet>
     
+    @State private var selectedAnimalType: String = "All"
+    @State private var pets: [Pet] = []
     @State private var showingAddPetView = false
     @State private var showAlert = false
     @State private var errorMessage: String = ""
@@ -26,25 +21,22 @@ struct PetListView: View {
     var body: some View {
         NavigationView {
             List {
+                Picker("Typ zwierzęcia", selection: $selectedAnimalType) {
+                    Text("Wszystkie").tag("All")
+                    Text("Koty").tag("Kot")
+                    Text("Psy").tag("Pies")
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
+                .onChange(of: selectedAnimalType) { newValue in
+                    loadPets()
+                    print("Selected animal type changed to: \(newValue)")
+                    // Tutaj można również dodać logikę do odświeżania listy zwierząt
+                }
                 if pets.isEmpty {
-                    VStack(alignment: .center) {
-                        
-                        Image("EmptyList")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .clipped()
-                            .cornerRadius(20)
-                            .padding(.horizontal, 5.0)
-                        
-                        Divider()
-                        
-                        Text("Aktualnie brak dostępnych zwierząt do adopcji.")
-                            .foregroundColor(.secondary)
-                            .padding(50)
-                    }
-                    
+                    emptySection
                 } else {
-                    ForEach(pets) { pet in
+                    ForEach(pets, id: \.self) { pet in
                         NavigationLink(destination: PetDetailView(pet: pet)) {
                             PetRow(pet: pet)
                         }
@@ -71,7 +63,41 @@ struct PetListView: View {
                 if let message = appState.alertMessage, !message.isEmpty {
                     showAlert = true
                 }
+                loadPets()
             }
+        }
+    }
+    
+    private func loadPets() {
+        let request: NSFetchRequest<Pet> = Pet.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Pet.name, ascending: true)]
+        var predicates: [NSPredicate] = [NSPredicate(format: "isAvailable == YES")]
+        if selectedAnimalType != "All" {
+            predicates.append(NSPredicate(format: "animalType == %@", selectedAnimalType))
+        }
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        do {
+            pets = try viewContext.fetch(request)
+        } catch {
+            print("Failed to fetch pets: \(error)")
+        }
+    }
+    
+    
+    private var emptySection: some View {
+        VStack(alignment: .center) {
+            Image("EmptyList")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .clipped()
+                .cornerRadius(20)
+                .padding(.horizontal, 5.0)
+            
+            Divider()
+            
+            Text("Aktualnie brak dostępnych zwierząt do adopcji.")
+                .foregroundColor(.secondary)
+                .padding(50)
         }
     }
     
@@ -111,7 +137,7 @@ struct PetListView: View {
             errorMessage = "Brak uprawnień do usunięcia zwierzęcia."
             return
         }
-
+        
         withAnimation {
             offsets.map { pets[$0] }.forEach(viewContext.delete)
             
@@ -151,6 +177,9 @@ struct PetRow: View {
 
 struct PetListView_Previews: PreviewProvider {
     static var previews: some View {
-        PetListView().environmentObject(AppState())
+        let context = PersistenceController.preview.container.viewContext
+        return PetListView()
+            .environment(\.managedObjectContext, context)
+            .environmentObject(AppState())
     }
 }
