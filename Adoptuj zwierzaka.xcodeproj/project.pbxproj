@@ -26,6 +26,7 @@
 		DC6630962BD5807700A34903 /* PetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6630952BD5807600A34903 /* PetListView.swift */; };
 		DCE296632BD7E1E40008A1A4 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */; };
 		DCE296652BD7E24E0008A1A4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE296642BD7E24E0008A1A4 /* LoginView.swift */; };
+		DCF0AAB02BE8D6E40061DBED /* UserAdoptionRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF0AAAF2BE8D6E40061DBED /* UserAdoptionRequestsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		DC6630952BD5807600A34903 /* PetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListView.swift; sourceTree = "<group>"; };
 		DCE296622BD7E1E40008A1A4 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		DCE296642BD7E24E0008A1A4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DCF0AAAF2BE8D6E40061DBED /* UserAdoptionRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAdoptionRequestsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				DC6630932BD57F6A00A34903 /* MainView.swift */,
 				DC6630952BD5807600A34903 /* PetListView.swift */,
 				DC6302D12BE7B0120068AECA /* AdoptionRequestsView.swift */,
+				DCF0AAAF2BE8D6E40061DBED /* UserAdoptionRequestsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				DC6630902BD542B400A34903 /* AddPetView.swift in Sources */,
 				DCE296632BD7E1E40008A1A4 /* RegistrationView.swift in Sources */,
 				DC550DC82BE0F5CC0095050D /* UserView.swift in Sources */,
+				DCF0AAB02BE8D6E40061DBED /* UserAdoptionRequestsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

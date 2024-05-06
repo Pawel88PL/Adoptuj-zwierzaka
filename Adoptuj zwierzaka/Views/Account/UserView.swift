@@ -33,6 +33,12 @@ struct UserView: View {
             if appState.userRole == "admin" {
                 NavigationLink("Przejrzyj wnioski adopcyjne", destination: AdoptionRequestsView())
             }
+            
+            if appState.userRole == "user" {
+                NavigationLink("Moje wnioski adopcyjne", destination:
+                    UserAdoptionRequestsView())
+            }
+            
             Button("Wyloguj") {
                 appState.logOut()
             }
