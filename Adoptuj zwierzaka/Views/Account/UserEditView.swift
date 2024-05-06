@@ -60,7 +60,8 @@ struct UserEditView: View {
                         firstName: firstName,
                         secondName: secondName,
                         phoneNumber: phoneNumber,
-                        context: viewContext
+                        context: viewContext,
+                        appState: appState
                     ) { result in
                         switch result {
                         case .success():

@@ -76,6 +76,7 @@ class UserManager {
         secondName: String?,
         phoneNumber: String?,
         context: NSManagedObjectContext,
+        appState: AppState,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
         context.perform {
@@ -86,6 +87,9 @@ class UserManager {
             
             do {
                 try context.save()
+                DispatchQueue.main.async {
+                    appState.updateUserDetails(user: user)  // Aktualizacja danych w AppState
+                }
                 completion(.success(()))
                 print("Aktualizacja danych użytkownika przebiegła pomyślnie.")
             } catch {
