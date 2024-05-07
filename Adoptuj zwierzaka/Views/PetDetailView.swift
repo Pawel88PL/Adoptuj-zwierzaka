@@ -38,30 +38,32 @@ struct PetDetailView: View {
                         
                         Spacer()
                         
-                        Button("Adoptuj") {
-                            self.showAdoptionAlert = true
-                        }
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
-                        .alert(isPresented: $showAdoptionAlert) {
-                            Alert(
-                                title: Text("Potwierdzenie adopcji"),
-                                message: Text("Czy na pewno chcesz adoptować \(pet.name ?? "to zwierzę")?"),
-                                primaryButton: .default(Text("Tak"), action: {
-                                    PetManager.adoptPet(pet: pet, currentUser: appState.currentUser, context: viewContext) { success, error in
-                                        if success {
-                                            presentationMode.wrappedValue.dismiss()
-                                        } else {
-                                            // Obsługa błędu
-                                            print(error?.localizedDescription ?? "Nieznany błąd")
+                        if pet.isAvailable == true {
+                            Button("Adoptuj") {
+                                self.showAdoptionAlert = true
+                            }
+                            .padding()
+                            .background(Color.green)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .shadow(radius: 5)
+                            .alert(isPresented: $showAdoptionAlert) {
+                                Alert(
+                                    title: Text("Potwierdzenie adopcji"),
+                                    message: Text("Czy na pewno chcesz adoptować \(pet.name ?? "to zwierzę")?"),
+                                    primaryButton: .default(Text("Tak"), action: {
+                                        PetManager.adoptPet(pet: pet, currentUser: appState.currentUser, context: viewContext) { success, error in
+                                            if success {
+                                                presentationMode.wrappedValue.dismiss()
+                                            } else {
+                                                // Obsługa błędu
+                                                print(error?.localizedDescription ?? "Nieznany błąd")
+                                            }
                                         }
-                                    }
-                                }),
-                                secondaryButton: .cancel()
-                            )
+                                    }),
+                                    secondaryButton: .cancel()
+                                )
+                            }
                         }
                     }
                     .padding(.horizontal)
