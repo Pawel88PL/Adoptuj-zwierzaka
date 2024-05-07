@@ -18,26 +18,48 @@ struct UserAdoptionRequestsView: View {
     ) var adoptionRequests: FetchedResults<AdoptionRequest>
     
     var body: some View {
-        List(adoptionRequests, id: \.self) { request in
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Zwierzę: \(request.pet?.name ?? "Nieznane")")
-                    .font(.headline)
-                Text("Rasa: \(request.pet?.breed ?? "Nieznana")")
-                    .font(.subheadline)
-                Text("Data wniosku: \(request.dateCreated ?? Date(), formatter: itemFormatter)")
-                    .font(.caption)
-                Text("Status: \(request.status ?? "Nieznany")")
-                    .foregroundColor(colorForStatus(request.status))
+        if adoptionRequests.isEmpty {
+            VStack(alignment: .center) {
+                Image("EmptyList")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .clipped()
+                    .cornerRadius(20)
+                    .padding(.horizontal, 5.0)
+                    .frame(maxHeight: 300)
+                
+                Divider()
+                
+                Text("Nie złożyłeś jeszcze żadnych wniosków adopcyjnych.")
+                    .foregroundColor(.gray)
+                    .padding()
             }
-            .padding()
-            .background(Color.secondary.opacity(0.1))
-            .cornerRadius(10)
-            .shadow(radius: 2)
-        }
-        .listStyle(PlainListStyle())
-        .navigationTitle("Moje wnioski adopcyjne")
-        .onAppear {
-            setFetchRequestPredicate()
+        } else {
+            List(adoptionRequests, id: \.self) { request in
+                if let pet = request.pet {
+                    NavigationLink(destination: PetDetailView(pet: pet)) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Zwierzę: \(pet.name ?? "Nieznane")")
+                                .font(.headline)
+                            Text("Rasa: \(pet.breed ?? "Nieznana")")
+                                .font(.subheadline)
+                            Text("Data wniosku: \(request.dateCreated ?? Date(), formatter: itemFormatter)")
+                                .font(.caption)
+                            Text("Status: \(request.status ?? "Nieznany")")
+                                .foregroundColor(colorForStatus(request.status))
+                        }
+                        .padding()
+                        .background(Color.secondary.opacity(0.1))
+                        .cornerRadius(10)
+                        .shadow(radius: 2)
+                    }
+                }
+            }
+            .listStyle(PlainListStyle())
+            .navigationTitle("Moje wnioski adopcyjne")
+            .onAppear {
+                setFetchRequestPredicate()
+            }
         }
     }
     
@@ -69,7 +91,6 @@ private let itemFormatter: DateFormatter = {
     formatter.timeStyle = .medium
     return formatter
 }()
-
 
 
 

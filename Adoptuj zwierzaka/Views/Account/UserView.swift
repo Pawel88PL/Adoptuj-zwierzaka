@@ -33,20 +33,17 @@ struct UserView: View {
             if appState.userRole == "admin" {
                 NavigationLink("Przejrzyj wnioski adopcyjne", destination: AdoptionRequestsView())
             }
-            
             if appState.userRole == "user" {
                 NavigationLink("Moje wnioski adopcyjne", destination:
-                    UserAdoptionRequestsView())
+                                UserAdoptionRequestsView())
             }
-            
+            if let user = appState.currentUser {
+                NavigationLink("Edytuj", destination: UserEditView(user: user).environmentObject(appState))
+            }
             Button("Wyloguj") {
                 appState.logOut()
             }
             .foregroundColor(.red)
-            
-            if let user = appState.currentUser {
-                NavigationLink("Edytuj", destination: UserEditView(user: user).environmentObject(appState))
-            }
         }
     }
     

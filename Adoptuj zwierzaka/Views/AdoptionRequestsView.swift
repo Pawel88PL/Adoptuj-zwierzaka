@@ -14,68 +14,74 @@ struct AdoptionRequestsView: View {
     @FetchRequest(
         entity: AdoptionRequest.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \AdoptionRequest.dateCreated, ascending: false)],
-        predicate: nil // Możesz dodać predykat, jeśli chcesz filtrować wyniki
+        predicate: nil
     ) var adoptionRequests: FetchedResults<AdoptionRequest>
     
     var body: some View {
         List(adoptionRequests, id: \.self) { request in
-            VStack(alignment: .leading, spacing: 10) {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Zwierzę: \(request.pet?.name ?? "Nieznane")")
-                            .font(.headline)
-                        Text("Rasa: \(request.pet?.breed ?? "Nieznana")")
-                            .font(.subheadline)
-                    }
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                        Text("Data wniosku:")
-                            .font(.caption)
-                        Text(request.dateCreated ?? Date(), formatter: itemFormatter)
-                            .font(.caption)
-                    }
-                }
-                HStack {
-                    Text("Osoba:")
-                        .font(.headline)
-                    Spacer()
-                    Text("\(request.user?.firstName ?? "Imię") \(request.user?.secondName ?? "Nazwisko")")
-                        .font(.subheadline)
-                }
-                Text("Email: \(request.user?.email ?? "Nieznany email")")
-                Text("Tel: \(request.user?.phoneNumber ?? "Brak numeru")")
-                Text("Status: \(request.status ?? "Nieznany")")
-                
-                HStack {
-                    Button("Zatwierdź") {
-                        updateRequestStatus(request, newStatus: "Zatwierdzony")
-                    }
-                    .buttonStyle(BorderlessButtonStyle())
-                    .foregroundColor(.green)
-                    
-                    Button("Odrzuć") {
-                        updateRequestStatus(request, newStatus: "Odrzucony")
-                    }
-                    .buttonStyle(BorderlessButtonStyle())
-                    .foregroundColor(.red)
-                    
-                    Spacer()
-                    
-                    Button(action: {
-                        deleteRequest(request)
-                    }) {
-                        Image(systemName: "trash")
-                            .foregroundColor(.red)
-                    }
+            if let pet = request.pet {
+                NavigationLink(destination: PetDetailView(pet: pet)) {
+                    requestEntryView(request)
                 }
             }
-            .padding()
-            .background(Color.secondary.opacity(0.1))
-            .cornerRadius(10)
-            .shadow(radius: 2)
         }
         .listStyle(PlainListStyle())
         .navigationTitle("Wnioski Adopcyjne")
+    }
+    
+    private func requestEntryView(_ request: AdoptionRequest) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Zwierzę: \(request.pet?.name ?? "Nieznane")")
+                        .font(.headline)
+                    Text("Rasa: \(request.pet?.breed ?? "Nieznana")")
+                        .font(.subheadline)
+                }
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text("Data wniosku:")
+                        .font(.caption)
+                    Text(request.dateCreated ?? Date(), formatter: itemFormatter)
+                        .font(.caption)
+                }
+            }
+            HStack {
+                Text("Osoba:")
+                    .font(.headline)
+                Spacer()
+                Text("\(request.user?.firstName ?? "Imię") \(request.user?.secondName ?? "Nazwisko")")
+                    .font(.subheadline)
+            }
+            Text("Email: \(request.user?.email ?? "Nieznany email")")
+            Text("Tel: \(request.user?.phoneNumber ?? "Brak numeru")")
+            Text("Status: \(request.status ?? "Nieznany")")
+            
+            HStack {
+                Button("Zatwierdź") {
+                    updateRequestStatus(request, newStatus: "Zatwierdzony")
+                }
+                .buttonStyle(BorderlessButtonStyle())
+                .foregroundColor(.green)
+                
+                Button("Odrzuć") {
+                    updateRequestStatus(request, newStatus: "Odrzucony")
+                }
+                .buttonStyle(BorderlessButtonStyle())
+                .foregroundColor(.red)
+                
+                Button("Usuń") {
+                    deleteRequest(request)
+                }
+                .buttonStyle(BorderlessButtonStyle())
+                .foregroundColor(.red)
+            }
+            
+        }
+        .padding()
+        .background(Color.secondary.opacity(0.1))
+        .cornerRadius(10)
+        .shadow(radius: 2)
     }
     
     private func updateRequestStatus(_ request: AdoptionRequest, newStatus: String) {
