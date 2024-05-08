@@ -4,10 +4,10 @@
 
 "Adoptuj zwierzaka" to aplikacja na urządzenia mobilne z systemem iOS, napisana w języku SwiftUI, która umożliwia adopcję zwierząt z lokalnych schronisk. Umożliwia użytkownikom przeglądanie, składanie wniosków adopcyjnych oraz śledzenie statusu swoich wniosków. Administratorzy mogą zarządzać wnioskami, zwierzętami i użytkownikami.
 
-![Screenshot 1](screenshots/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202024-05-07%20at%2010.42.24.png)
-![Screenshot 2](screenshots/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202024-05-07%20at%2010.42.45.png)
-![Screenshot 3](screenshots/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202024-05-07%20at%2010.42.58.png)
-![Screenshot 4](screenshots/Simulator%20Screenshot%20-%20iPhone%2014%20Pro%20-%202024-05-07%20at%2010.43.20.png)
+![Screenshot 1](images/1.png)
+![Screenshot 2](images/2.png)
+![Screenshot 3](images/3.png)
+![Screenshot 4](images/4.png)
 
 ## Architektura i technologie
 
