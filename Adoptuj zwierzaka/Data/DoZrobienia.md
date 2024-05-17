@@ -13,4 +13,5 @@ lista rzeczy do zrobienia:
 - powiązać adoptowanego zwierzaka z użytkownikiem -- ZROBIONE
 - stworzyć widok wysłanych wniosków dla administratora -- ZROBIONE
 - umożliwić administratorowi aktualizację statusu wniosku -- ZROBIONE
-- dla zwykłego użytkownika dodać widok złożonych wniosków
+- dla zwykłego użytkownika dodać widok wysłanych wniosków -- ZROBIONE
+- zabezpieczyć możliwość dwukrotnego złożenia wniosku dla tego samego zwierzaka - ZROBIONE
